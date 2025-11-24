@@ -34,7 +34,7 @@ public class Politician {
 
         if(county != null && !county.isEmpty()) {
             for(String c : COUNTIES)
-                if(county.equals(c)) {
+                if(county.equalsIgnoreCase(c)) {
                     this.county = c;
                     break;
                 }
@@ -95,7 +95,7 @@ public class Politician {
     public void setCounty(String county) {
         if(county != null && !county.isEmpty()) {
             for(String c : COUNTIES)
-                if(county.equals(c)) {
+                if(county.equalsIgnoreCase(c)) {
                     this.county = c;
                     break;
                 }
@@ -111,5 +111,14 @@ public class Politician {
         LocalDate now = LocalDate.now();
         if(DOB != null && DOB.getYear() > now.getYear() - 100)
             this.DOB = DOB;
+    }
+
+    @Override
+    public String toString(){
+        return "Name: " + name + "\t" +
+                " Affiliation: " + affiliation + "\t" +
+                " County: " + county + "\t" +
+                " DOB: " + DOB + "\t" +
+                " PhotoURL: " + photoURL + "\n";
     }
 }
