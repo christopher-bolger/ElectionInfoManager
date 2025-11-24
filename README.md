@@ -78,19 +78,3 @@ This project involves creating an application to store and retrieve information 
 | General (style, commenting, completeness)    | 10%   |
 
 ---
-
-## Suggested Project Structure
-```plaintext
-ElectionsSystem/
-├── src/
-│   ├── model/        # Custom ADTs (Politician, Election, Candidate)
-│   ├── controller/   # Logic for adding/searching/sorting
-│   ├── view/         # JavaFX GUI components
-│   └── utils/        # Hashing and sorting algorithms
-├── resources/
-│   └── images/       # Politician photos
-├── data/
-│   └── snapshot.dat  # Persistence file
-├── tests/
-│   └── JUnit tests
-└── README.md
