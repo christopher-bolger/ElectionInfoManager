@@ -1,0 +1,524 @@
+package model.linkedlist;
+
+import java.util.*;
+import java.util.function.Consumer;
+import java.util.function.IntFunction;
+import java.util.function.Predicate;
+import java.util.function.UnaryOperator;
+import java.util.stream.Stream;
+
+//Questions:
+// spliterator???
+// stream??
+// list.super()?
+// Handle collection passed to method?
+// replaceAll unaryOperator?
+// Why do some pass objects and others allow for E?
+//NodeIterator <final>
+
+public class LinkedList<E> implements List<E>{
+    private Node<E> head, tail;
+
+    public LinkedList() {
+        head = new Node<>();
+        tail = head;
+    }
+
+    // Add element/node methods
+    //test complete
+    @Override
+    public boolean add(E element) {
+        if(element == null)
+            return false;
+
+        if(isEmpty())
+            return head.setContent(element); //or tail - both point to the same thing in an empty list
+        addNode();
+        return tail.setContent(element);
+    }
+
+    @Override
+    //test complete
+    public void add(int index, E element) {
+        if(!(isValidIndex(index) && element != null))
+            return;
+
+        if(index == 0) {
+            addFirst(element);
+            return;
+        }
+        if(index == size()-1){
+            addLast(element);
+            return;
+        }
+
+        Node<E> node = head;
+        int count = 0;
+        while(count < index-1){
+            node = node.next;
+            count++;
+        }
+
+        Node<E> nextLink = node.next;
+        node.next = new Node<>(element, nextLink);
+    }
+
+    @Override
+    //test completed
+    public void addFirst(E e) {
+        if(e == null)
+            return;
+        if(head.getContent() == null)
+            head.setContent(e);
+        else
+            head = new Node<>(e, head);
+    }
+
+    @Override
+    //test completed
+    public void addLast(E e) {
+        add(e);
+    }
+
+    @Override
+    //test completed
+    public boolean addAll(Collection<? extends E> c) {
+        if(c == null)
+            return false;
+
+        int size = size();
+        for(E o : c)
+            add(o);
+        return size < size();
+    }
+
+    @Override
+    //test completed
+    public boolean addAll(int index, Collection<? extends E> c) {
+        if(!(isValidIndex(index) && c != null))
+            return false;
+
+        int size = size();
+        for(E o : c) {
+            add(index++, o);
+        }
+        return size < size();
+    }
+
+    //get element methods
+    //test completed
+    public E get(E element){
+        if(isEmpty())
+            return null;
+       Node<E> temp = head;
+       for(;temp != null && !temp.getContent().equals(element); temp = temp.next);
+
+       return temp == null ? null : temp.getContent();
+    }
+
+    @Override
+    //test completed
+    public E get(int index){
+        if(!isValidIndex(index))
+            return null;
+
+        Node<E> node = head;
+        int count = 0;
+        while(count != index){
+            node = node.next;
+            count++;
+        }
+        return node.getContent();
+    }
+
+    @Override
+    //test finished
+    public E set(int index, E element) {
+        if(!isValidIndex(index) && element != null)
+            return null;
+
+        Node<E> temp = head;
+        int count = 0;
+        while(count != index){
+            temp = temp.next;
+            count++;
+        }
+        Node<E> oldContent = new Node<>();
+        oldContent.setContent(temp.getContent());
+        temp.setContent(element);
+        return oldContent.getContent();
+    }
+
+    @Override
+    //test completed
+    public E getFirst(){
+        return !isEmpty() ? head.getContent() : null;
+    }
+
+    @Override
+    //test completed
+    public E getLast(){
+        return !isEmpty() ? tail.getContent() : null;
+    }
+
+    //removal methods
+    @Override
+    //test complete
+    public boolean remove(Object element){
+        if(isEmpty() || element == null)
+            return false;
+
+        Node<E> temp = head, prev = null;
+        while(temp != null && !temp.getContent().equals(element)){
+            prev = temp;
+            temp = temp.next;
+        }
+
+        if(temp == null) //item not found
+            return false;
+        if(prev == null)
+            return removeFirst().equals(element); //should never be false
+        if(temp.next == null)
+            return removeLast().equals(element); //should never be false
+
+        prev.next = temp.next;
+        return true;
+    }
+
+    @Override
+    //test completed
+    public E remove(int index){
+        if(!isValidIndex(index))
+            return null;
+
+        Node<E> getItem = new Node<>();
+        getItem.setContent(get(index));
+
+        return remove(getItem.getContent()) ? getItem.getContent() : null;
+    }
+
+    @Override
+    //test complete
+    public E removeFirst() {
+        if(isEmpty())
+            return null;
+
+        Node<E> removedObject = new Node<>();
+        removedObject.setContent(head.getContent());
+        if(head == tail)
+            clear();
+        else
+            head = head.next;
+        return removedObject.getContent();
+    }
+
+    @Override
+    //test completed
+    public E removeLast() {
+        if(isEmpty())
+            return null;
+
+        Node<E> removedObject = new Node<>(), temp = head;
+        removedObject.setContent(tail.getContent());
+
+        if(head == tail){
+            clear();
+            return removedObject.getContent();
+        }
+
+        //TODO
+        // Maybe make an internal private method for get
+        // Only for use when I know it's safe to do so
+        // Will reduce footprint & increase readability
+        while(temp.next != tail){
+            temp = temp.next;
+        }
+
+        temp.next = null;
+        tail = temp;
+        return removedObject.getContent();
+    }
+
+    @Override
+    // do I need to check if containsAll(c)?
+    // since it's an optioanl operation, I shouldn't really need to?
+    // just if the element is contained within this then i'll remove it, if not i'll ignore it
+    //test completed
+    public boolean removeAll(Collection<?> c) {
+        if(isEmpty())
+            return false;
+
+        int size = size();
+        for(Object o : c)
+            remove(o);
+        return size > size();
+    }
+
+    @Override
+    public boolean removeIf(Predicate<? super E> filter) {
+        return List.super.removeIf(filter);
+    }
+
+    @Override
+    //test completed
+    public boolean retainAll(Collection<?> c) {
+        // Think there's probably a better way to do this,
+        // Im checking the entire list every time I get a new element from the collection
+        // Because im not skipping elements i've already found here
+        // can I just do clear() and then addAll(c)?
+        if(isEmpty())
+            return false;
+
+        int size = size(), newSize = 0;
+        LinkedList<E> newList = new LinkedList();
+        for(Object o : c)
+            if(contains(o)) {
+                newList.add((E) o);
+                newSize++;
+            }
+
+        if(newSize == size) //if nothing is removed I can save some time by returning here
+            return true;
+        clear();
+        addAll(newList);
+        return true;
+    }
+
+    @Override
+    //test completed
+    public List<E> reversed() {
+        if(isEmpty())
+            return this;
+
+        LinkedList<E> reversedOrder = new LinkedList<>();
+        Node<E> temp = head;
+        while(temp != null){
+            reversedOrder.addFirst(temp.getContent());
+            temp = temp.next;
+        }
+        return reversedOrder;
+    }
+
+    @Override
+    // test finished
+    public int indexOf(Object o) {
+        if(isEmpty())
+            return -1;
+
+        int index = 0;
+        Node<E> temp = head;
+        while(temp != null && !temp.getContent().equals(o)){
+            temp = temp.next;
+            index++;
+        }
+        return index == size() ? -1 : index;
+    }
+
+    @Override
+    // test finished
+    public int lastIndexOf(Object o) {
+        if(isEmpty())
+            return -1;
+
+        int index = 0, foundIndex = -1;
+        Node<E> temp = head;
+        while(temp != null){
+            if(temp.getContent().equals(o))
+                foundIndex = index;
+            temp = temp.next;
+            index++;
+        }
+        return Math.max(foundIndex, -1);
+    }
+
+    @Override
+    public ListIterator<E> listIterator() {
+        //thought I could just put the NodeIterator in the constructor but listIterator also does previous()
+        return new LinkedListIterator<>(head, this);
+    }
+
+    @Override
+    public ListIterator<E> listIterator(int index) {
+        if(!isValidIndex(index))
+            return new LinkedListIterator<>(head, this, size()-1);
+
+        return new LinkedListIterator<>(head, this, index);
+    }
+
+    @Override
+    //test complete
+    public List<E> subList(int fromIndex, int toIndex) {
+        if(isEmpty() || !(isValidIndex(fromIndex) && isValidIndex(toIndex-1)))
+            return List.of();
+
+        int index = 0;
+        Node<E> temp = head;
+        while(index != fromIndex){
+            temp = temp.next;
+            index++;
+        }
+
+        List<E> returnList = new LinkedList<>();
+        while(temp != null && index < toIndex){
+            E object = temp.getContent();
+            returnList.add(object);
+            temp = temp.next;
+            index++;
+        }
+        return returnList;
+    }
+
+    @Override
+    public Spliterator<E> spliterator() {
+        return List.super.spliterator();
+    }
+
+    @Override
+    public Stream<E> stream() {
+        return List.super.stream();
+    }
+
+    @Override
+    public Stream<E> parallelStream() {
+        return List.super.parallelStream();
+    }
+
+    @Override
+    public boolean containsAll(Collection<?> c) {
+        for(Object o : c)
+            if(!contains(o))
+                return false;
+        return true;
+    }
+
+    @Override
+    public void replaceAll(UnaryOperator<E> operator) {
+        //I understand whats done but
+        //this was all intelliJ suggested
+        //Like im not sure what this is actually supposed to do
+        //What does the operator do?
+        if(isEmpty())
+            return;
+
+        Node<E> temp = head;
+        while(temp != null && temp.getContent() != null){
+            temp.setContent(operator.apply(temp.getContent()));
+            temp = temp.next;
+        }
+    }
+
+    @Override
+    //This seems like it's overly complicated
+    public void sort(Comparator<? super E> c) {
+        List.super.sort(c);
+    }
+
+    //misc methods
+    private boolean isValidIndex(int index){
+        if(isEmpty())
+            return false;
+        return index > -1 && index < size();
+    }
+
+    private void addNode(){
+        tail.next = new Node<>();
+        tail = tail.next;
+    }
+
+    public void clear(){
+        head = new Node<>();
+        tail = head;
+    }
+
+    // test finished
+    public int size(){
+        Node<E> node = head;
+        int count = 0;
+        while(node != null && node.getContent() != null){
+            count++;
+            node = node.next;
+        }
+        return count;
+    }
+
+    @Override
+    //test completed
+    public boolean isEmpty(){
+        return head.getContent() == null;
+    }
+
+    @Override
+    //test completed
+    public boolean contains(Object o) {
+        if(isEmpty() || o == null) //probably silly to have this here because the gains are so small but its saving memory (I think)
+            return false;
+
+        Node<E> temp = head;
+        for(; temp != null; temp = temp.next)
+            if(temp.getContent().equals(o))
+                return true;
+        return false;
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        return new NodeIterator<>(head, this);
+    }
+
+    @Override
+    public void forEach(Consumer<? super E> action) {
+        List.super.forEach(action);
+    }
+
+    @Override
+    //test completed
+    public Object[] toArray() {
+        Object[] array = new Object[size()];
+        Node<E> temp = head;
+        for(int i = 0; i < array.length; i++){
+            array[i] = temp.getContent();
+        }
+        return array;
+    }
+
+    //TODO
+    // Since it's using T is it telling me this is going to be a different type?
+    // or is it just using it to signify an array, which would be a different type to the base
+    // object?
+    @Override
+    public <T> T[] toArray(T[] a) {
+        if(a.length < size())
+            a = Arrays.copyOf(a, size());
+
+        Node<E> temp = head;
+        int i;
+        for(i = 0; i < size(); i++){
+            a[i] = (T) temp.getContent();
+            temp = temp.next;
+        }
+
+        if(i < a.length)
+            for(;i < a.length; i++) a[i] = null;
+
+        return a;
+    }
+
+    @Override
+    public <T> T[] toArray(IntFunction<T[]> generator) {
+        return List.super.toArray(generator);
+    }
+
+    public String toString(){
+        if(isEmpty())
+            return "";
+
+        Node<E> node = head;
+        StringBuilder string = new StringBuilder();
+        while(node != tail){
+            string.append(node).append("\n");
+            node = node.next;
+        }
+        string.append(tail);
+        return string.toString();
+    }
+}
