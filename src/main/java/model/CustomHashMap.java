@@ -2,30 +2,41 @@ package model;
 
 import model.linkedlist.LinkedList;
 
+import java.util.HashMap;
+
 //TODO:
-// this is just linear searching with extra steps
-// rethink
+// ok I don't need a hashMap unless im planning on hashing stuff elsewhere which just seems like its over the top
+// maybe i'll just stick with a hashtable or something.
+// hashMapNode can still be used for it but I don't think it really needs to store its own key
 public class CustomHashMap<K, V>{
     private int size = 0;
-    private LinkedList<HashMapNode<Integer, V>> keyValuePairs = new LinkedList<>();
+    private HashMapNode<K, V>[] map;
 
-    public void add(K key, V value) {
-        int hash = key.hashCode();
-        HashMapNode<Integer, V> node = containsKey(hash);
-        if(node != null){
-            node.addValue(value);
-        }else{
-            keyValuePairs.add(new HashMapNode<>(hash, value));
-            size++;
+    public CustomHashMap() {
+        map = new HashMapNode[10];
+    }
+
+    public void add(V value) {
+        if(size >= map.length/2) {
+            rehash();
+        }
+
+    }
+
+    //TODO
+    // getKeys method to be used here
+    private void rehash() {
+        HashMapNode<K, V>[] oldMap = map;
+        map = new HashMapNode[map.length*2];
+        for(int i = 0; i < map.length; i++){
+            if(map[i] != null){
+                LinkedList<V> values = map[i].getValues();
+                for(V value : values) add(value);
+            }
         }
     }
 
-    private HashMapNode<Integer, V> containsKey(int hash){
-        for(HashMapNode<Integer, V> node : keyValuePairs){
-            if(node.getKey() == hash){
-                return node;
-            }
-        }
-        return null;
+    private boolean containsKey(K key){
+        return false;
     }
 }

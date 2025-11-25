@@ -2,17 +2,17 @@ package model;
 
 import model.linkedlist.LinkedList;
 
-public class HashMapNode<Integer, V> {
-    private final int key;
+public class HashMapNode<K, V> {
+    private final K key;
     private LinkedList<V> values;
 
-    public HashMapNode(int key, V value) {
+    public HashMapNode(K key, V value) {
         this.key = key;
         values = new LinkedList<>();
         values.addFirst(value);
     }
 
-    public int getKey() {
+    public K getKey() {
         return key;
     }
 
@@ -26,6 +26,10 @@ public class HashMapNode<Integer, V> {
 
     public int getSize() {
         return values.size();
+    }
+
+    public LinkedList<V> getValues() {
+        return values;
     }
 
     public V findValue(V value) {
