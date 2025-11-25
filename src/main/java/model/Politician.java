@@ -114,6 +114,16 @@ public class Politician {
     }
 
     @Override
+    public int hashCode(){
+        int hash = name != null ? name.hashCode() : 0;
+        hash += affiliation != null ? affiliation.hashCode() : 0;
+        hash += county != null ? county.hashCode() : 0;
+        hash += photoURL != null ? photoURL.hashCode() : 0;
+        hash += DOB != null ? DOB.hashCode() : 0;
+        return hash;
+    }
+
+    @Override
     public String toString(){
         return "Name: " + name + "\t" +
                 " Affiliation: " + affiliation + "\t" +

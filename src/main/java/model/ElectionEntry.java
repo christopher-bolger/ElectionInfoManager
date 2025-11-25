@@ -35,4 +35,11 @@ public class ElectionEntry{
     public void addVotes(int votes) {
         this.votes += votes;
     }
+
+    @Override
+    public int hashCode(){
+        int hash = politician != null ? politician.hashCode() : 0;
+        hash += affiliation != null ? affiliation.hashCode() : 0;
+        return hash;
+    }
 }
