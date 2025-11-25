@@ -3,9 +3,11 @@ package model;
 import model.linkedlist.LinkedList;
 
 //TODO:
-// ok I don't need a hashMap unless im planning on hashing stuff elsewhere which just seems like its over the top
-// maybe i'll just stick with a hashtable or something.
-// hashMapNode can still be used for it but I don't think it really needs to store its own key
+// man I really suck at getting my head around this,
+// need a LinkedList of Nodes that contains K & V.
+// Then hashing should be done by partial fields only
+// no point in using every field for a specific objects hashCode() because that literally
+// defeats the purpose of this.
 public class CustomHashTable<V>{
     private int size = 0;
     private LinkedList<V>[] map;
