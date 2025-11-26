@@ -22,15 +22,15 @@ public class CustomHashMap<K, V>{
     public V get(K key) {
         int index = key.hashCode()%list.length;
         for(HashMapNode<K,V> node : list[index])
-            if(node.getKey().equals(key))
-                return node.getValue();
+            if(node.key().equals(key))
+                return node.value();
         return null;
     }
 
     public void remove(K key) {
         int index = key.hashCode()%list.length;
         for(HashMapNode<K,V> node : list[index])
-            if(node.getKey().equals(key))
+            if(node.key().equals(key))
                 if(list[index].remove(node))
                     size--;
     }
@@ -42,7 +42,7 @@ public class CustomHashMap<K, V>{
         for(int i = 0; i < oldList.length; i++)
             if(!oldList[i].isEmpty())
                 for(HashMapNode<K,V> node : oldList[i])
-                    put(node.getKey(), node.getValue());
+                    put(node.key(), node.value());
     }
 
     public LinkedList<K> getKeys(){
@@ -52,7 +52,7 @@ public class CustomHashMap<K, V>{
         for(int i = 0; i < list.length; i++){
             if(!list[i].isEmpty())
                 for(HashMapNode<K,V> node : list[i])
-                    keys.add(node.getKey());
+                    keys.add(node.key());
         }
         return keys;
     }
