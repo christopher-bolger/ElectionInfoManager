@@ -38,8 +38,6 @@ public class ElectionEntry{
 
     @Override
     public int hashCode(){
-        int hash = politician != null ? politician.hashCode() : 0;
-        hash += affiliation != null ? affiliation.hashCode() : 0;
-        return hash;
+        return politician != null ? politician.hashCode() : 0;
     }
 }

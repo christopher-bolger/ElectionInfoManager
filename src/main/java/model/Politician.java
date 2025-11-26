@@ -3,7 +3,7 @@ package model;
 import utility.Utilities;
 import java.time.LocalDate;
 
-public class Politician {
+public class Politician{
     public static final String[] COUNTIES = {
             "Antrim", "Armagh", "Carlow", "Cavan", "Clare", "Cork",
             "Derry", "Donegal", "Down", "Dublin", "Fermanagh", "Galway",
@@ -115,12 +115,7 @@ public class Politician {
 
     @Override
     public int hashCode(){
-        int hash = name != null ? name.hashCode() : 0;
-        hash += affiliation != null ? affiliation.hashCode() : 0;
-        hash += county != null ? county.hashCode() : 0;
-        hash += photoURL != null ? photoURL.hashCode() : 0;
-        hash += DOB != null ? DOB.hashCode() : 0;
-        return hash;
+        return name != null ? name.hashCode() : 0;
     }
 
     @Override
