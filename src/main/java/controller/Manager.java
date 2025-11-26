@@ -25,4 +25,10 @@ public abstract class Manager<E> {
         }
         return null;
     }
+
+    public void sortAsc(){
+    }
+
+    public void sortDesc(){
+    }
 }
