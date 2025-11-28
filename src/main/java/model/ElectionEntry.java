@@ -1,23 +1,26 @@
 package model;
 
+//If election manager is going to store a k,v[] pair of politions & electionsEntries
+// then logically I shouldn't need to store the politician in the entry, they are the key
+//maybe my logic is flawed here
 public class ElectionEntry{
-    private final Politician politician;
+    int hashCode;
     private final String affiliation;
     private int votes;
 
-    public ElectionEntry(Politician politician, String affiliation) {
-        this.politician = politician;
-        this.affiliation = politician.getAffiliation();
+    public ElectionEntry(int hashCode, String affiliation) {
+        this.hashCode = hashCode;
+        this.affiliation = affiliation;
     }
 
-    public ElectionEntry(Politician politician, String affiliation, int votes) {
-        this.politician = politician;
-        this.affiliation = politician.getAffiliation();
+    public ElectionEntry(int hashCode, String affiliation, int votes) {
+        this.hashCode = hashCode;
+        this.affiliation = affiliation;
         this.votes = votes;
     }
 
-    public Politician getPolitician() {
-        return politician;
+    public int getPoliticianHashCode() {
+        return hashCode;
     }
 
     public String getAffiliation() {
@@ -38,6 +41,6 @@ public class ElectionEntry{
 
     @Override
     public int hashCode(){
-        return politician != null ? politician.hashCode() : 0;
+        return hashCode;
     }
 }
