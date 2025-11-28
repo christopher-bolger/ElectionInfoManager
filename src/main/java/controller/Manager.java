@@ -29,11 +29,9 @@ public abstract class Manager<E> {
         return null;
     }
 
-    public void sortAsc(Comparator<E> comparator){
-        Sort.mergeSort(list, comparator);
+    public E find(E e){
+        return map.get(e.hashCode());
     }
 
-    public void sortDesc(Comparator<E> comparator){
-        Sort.mergeSort(list, comparator);
-    }
+    public abstract void sort();
 }
