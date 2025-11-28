@@ -1,9 +1,6 @@
 package controller;
 import model.hashmap.CustomHashMap;
 import model.linkedlist.LinkedList;
-import utility.Sort;
-
-import java.util.Comparator;
 
 public abstract class Manager<E> {
     private LinkedList<E> list;
