@@ -1,4 +1,4 @@
-package model;
+package model.election;
 
 import utility.Utilities;
 import java.time.LocalDate;
