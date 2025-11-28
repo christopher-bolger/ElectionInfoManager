@@ -1,6 +1,9 @@
 package controller;
 import model.hashmap.CustomHashMap;
 import model.linkedlist.LinkedList;
+import utility.Sort;
+
+import java.util.Comparator;
 
 public abstract class Manager<E> {
     private LinkedList<E> list;
@@ -26,9 +29,11 @@ public abstract class Manager<E> {
         return null;
     }
 
-    public void sortAsc(){
+    public void sortAsc(Comparator<E> comparator){
+        Sort.mergeSort(list, comparator);
     }
 
-    public void sortDesc(){
+    public void sortDesc(Comparator<E> comparator){
+        Sort.mergeSort(list, comparator);
     }
 }
