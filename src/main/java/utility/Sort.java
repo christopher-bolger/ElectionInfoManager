@@ -1,7 +1,6 @@
 package utility;
 
 import model.linkedlist.LinkedList;
-
 import java.util.Comparator;
 
 public final class Sort{
