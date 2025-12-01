@@ -3,8 +3,8 @@ import model.hashmap.CustomHashMap;
 import model.linkedlist.LinkedList;
 
 public abstract class Manager<E> {
-    private LinkedList<E> list;
-    private CustomHashMap<Integer, E> map;
+    protected LinkedList<E> list;
+    protected CustomHashMap<Integer, E> map;
 
     public Manager() {
         list = new LinkedList<>();
@@ -28,6 +28,10 @@ public abstract class Manager<E> {
 
     public E find(E e){
         return map.get(e.hashCode());
+    }
+
+    public LinkedList<E> getList(){
+        return list;
     }
 
     public abstract void sort();
