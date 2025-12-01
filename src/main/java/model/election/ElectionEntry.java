@@ -1,7 +1,7 @@
 package model.election;
 
 public class ElectionEntry{
-    private Politician politician;
+    private final Politician politician;
     private final String affiliation;
     private int votes;
 
