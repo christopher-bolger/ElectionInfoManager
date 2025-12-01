@@ -12,6 +12,7 @@ public class Politician{
             "Roscommon", "Sligo", "Tipperary", "Tyrone", "Waterford",
             "Westmeath", "Wexford", "Wicklow"
     };
+    public final static String[] ELECTION_PARTIES = {"Independent", "Fianna Fail", "Fianna Gael", "Sinn Fein", "Labour Party", "People Before Profit", "Aontu", "Green Party", "Social Democrats", "Independent Ireland"};
 
     private String name, affiliation, county, photoURL;
     private LocalDate DOB;
@@ -24,12 +25,13 @@ public class Politician{
                 this.name = name;
         }else this.name = "INVALID";
 
-        if(affiliation != null && !affiliation.isEmpty()) {
-            if(affiliation.length() > 50)
-                this.affiliation = affiliation.substring(0, 50);
-            else
-                this.affiliation = affiliation;
-        }else
+        if(affiliation != null && !affiliation.isEmpty())
+            for(String e : ELECTION_PARTIES)
+                if(e.equals(affiliation)) {
+                    this.affiliation = e;
+                    break;
+                }
+        if(this.affiliation == null)
             this.affiliation = "INVALID";
 
         if(county != null && !county.isEmpty()) {
