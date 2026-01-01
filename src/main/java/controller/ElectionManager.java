@@ -33,11 +33,7 @@ public class ElectionManager extends Manager<Election> {
     }
 
     public boolean removeElection(Election election) {
-        if(super.find(election) != null) {
-            super.remove(election);
-            return true;
-        }
-        return false;
+        return super.remove(election) != null;
     }
 
     public boolean removePolitician(Politician pol, Election election) {

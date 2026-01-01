@@ -11,17 +11,21 @@ public abstract class Manager<E> {
         map = new CustomHashMap<>();
     }
 
-    public void add(E e){
-        list.add(e);
-        map.put(e.hashCode(), e);
+    public boolean add(E e){
+        if(map.get(e.hashCode()) == null){
+            list.add(e);
+            map.put(e.hashCode(), e);
+            return true;
+        }
+        return false;
     }
 
     public E remove(E e){
-        E found = list.get(e);
-        if(found != null){
+        E removed = map.get(e.hashCode());
+        if(removed != null){
             list.remove(e);
             map.remove(e.hashCode());
-            return found;
+            return removed;
         }
         return null;
     }

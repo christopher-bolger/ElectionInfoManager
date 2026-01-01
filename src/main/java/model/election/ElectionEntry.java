@@ -13,9 +13,7 @@ public class ElectionEntry{
     public ElectionEntry(Politician politician, int votes) {
         this.politician = politician;
         this.affiliation = politician.getAffiliation();
-        if(votes > 0)
-            this.votes = votes;
-        else this.votes = 0;
+        this.votes = Math.max(votes, 0);
     }
 
     public Politician getPolitician() {
@@ -31,11 +29,13 @@ public class ElectionEntry{
     }
 
     public void setVotes(int votes) {
-        this.votes = votes;
+        if(votes < 0)
+            this.votes = votes;
     }
 
     public void addVotes(int votes) {
-        this.votes += votes;
+        if(votes > 0)
+            this.votes += votes;
     }
 
     @Override

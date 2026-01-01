@@ -6,7 +6,6 @@ import utility.Sort;
 
 import java.time.LocalDate;
 import java.util.Comparator;
-import java.util.Date;
 
 public class Election {
     public final static String[] ELECTION_TYPES = {"General", "Local", "European", "Presidential"};
@@ -17,7 +16,9 @@ public class Election {
     CustomHashMap<Politician, ElectionEntry> candidates;
 
     public Election(int type, LocalDate date, int winners, String location) {
-        electionType = Math.max(type, 0);
+        if(type < 4)
+            electionType = Math.max(type, 0);
+        else electionType = type%4;
         totalWinners = Math.max(winners, 1);
 
         if(date != null)
@@ -36,7 +37,7 @@ public class Election {
     }
 
     public void sortByVotes(){
-        Sort.mergeSort(politicians, Comparator.comparingInt(ElectionEntry::getVotes));
+        Sort.mergeSort(politicians, (o1, o2) -> o2.getVotes() - o1.getVotes());
     }
 
     public void sortByAffiliation(){
@@ -54,27 +55,53 @@ public class Election {
         return (totalVotes / (totalWinners + 1)) + 1;
     }
 
-    public LinkedList<ElectionEntry> getWinners(){
-        LinkedList<ElectionEntry> winners = new LinkedList<>();
-        return switch(electionType) {
-            case 0, 1, 2 -> {
-                int quota = getQuota();
-                switch(electionType){
-                    case 0 -> sortByAffiliation();
-                    case 1, 2 -> sortByVotes();
+    public LinkedList<ElectionEntry> calculateResults(){
+        if(totalWinners > politicians.size())
+            return null;
+        LinkedList<ElectionEntry> temp = new LinkedList<>();
+        switch(electionType){
+            case 0,1,2 -> { //realized because im using droop I have to do vote redistribution
+                temp = getTotalOverQuota();
+                LinkedList<ElectionEntry> takenVotes = new LinkedList<>();
+                while(temp.size() < totalWinners){
+                    sortByVotes();
+                    int votes = 0;
+                    for(int i = politicians.size() - 1; i >= 0; i--) {
+                        ElectionEntry e = politicians.get(i);
+                        if (!takenVotes.contains(e) && e.getVotes() > 0) {
+                            votes = e.getVotes();
+                            takenVotes.add(e);
+                            break;
+                        }
+                    }
+
+                    LinkedList<ElectionEntry> manipulatedList = new LinkedList<>(); // creating a list of candidates that haven't already passed the threshold
+                    for(Politician key : candidates.getKeys()) {
+                        ElectionEntry e = candidates.get(key);
+                        if(e.getVotes() > 0)
+                            manipulatedList.add(e);
+                    }
+                    manipulatedList.removeAll(temp);
+
+                    int votesToAdd = votes / manipulatedList.size(); //probably will have some loss here
+                    for(ElectionEntry e : manipulatedList)
+                        e.addVotes(votesToAdd);
+
+                    temp = getTotalOverQuota();
                 }
-                for (ElectionEntry e : politicians) //i'd use a while loop if I had vote preferencing but since I don't I could get stuck in the loop
-                    if (e.getVotes() > quota)
-                        winners.add(e);
-                yield winners;
             }
-            case 3 -> {
-                sortByVotes();
-                winners.add(politicians.getFirst());
-                yield winners;
-            }
-            default -> null;
-        };
+            case 3 -> temp.add(politicians.getFirst());
+        }
+        return temp;
+    }
+
+    private LinkedList<ElectionEntry> getTotalOverQuota(){
+        LinkedList<ElectionEntry> overQuota = new LinkedList<>();
+        int quota = getQuota();
+        for(ElectionEntry e : politicians)
+            if(e.getVotes() >= quota)
+                overQuota.add(e);
+        return overQuota;
     }
 
     public void add(Politician politician){

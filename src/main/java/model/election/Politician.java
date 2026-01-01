@@ -2,6 +2,7 @@ package model.election;
 
 import utility.Utilities;
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Politician{
     public static final String[] COUNTIES = {
@@ -116,8 +117,18 @@ public class Politician{
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Politician that = (Politician) o;
+        return Objects.equals(name, that.name) && Objects.equals(county, that.county);
+    }
+
+    @Override
     public int hashCode(){
-        return name != null ? name.hashCode() : 0;
+        int hashCode = name != null ? name.hashCode() : 0;
+        hashCode += county != null ? county.hashCode() : 0;
+        return hashCode;
     }
 
     @Override

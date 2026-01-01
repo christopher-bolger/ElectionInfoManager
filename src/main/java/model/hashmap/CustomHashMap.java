@@ -9,18 +9,22 @@ public class CustomHashMap<K, V>{
 
     public CustomHashMap() {
         list = new LinkedList[10];
+        for(int i = 0; i<10; i++){
+            list[i] = new LinkedList<>();
+        }
     }
 
     public void put(K key, V value) {
         if(size >= list.length/2)
             rehash();
-        int index = key.hashCode()%list.length;
+        int index = Math.abs(key.hashCode())%list.length;
         list[index].addFirst(new HashMapNode<>(key, value));
         size++;
     }
 
     public V get(K key) {
-        int index = key.hashCode()%list.length;
+        //System.out.println(key.hashCode());
+        int index = Math.abs(key.hashCode())%list.length;
         for(HashMapNode<K,V> node : list[index])
             if(node.key().equals(key))
                 return node.value();
@@ -38,10 +42,11 @@ public class CustomHashMap<K, V>{
     private void rehash() {
         LinkedList<HashMapNode<K,V>>[] oldList = list;
         list = new LinkedList[list.length + (list.length/2+1)];
+        for(int i = 0; i<list.length; i++) list[i] = new LinkedList<>();
         size = 0;
-        for(int i = 0; i < oldList.length; i++)
-            if(!oldList[i].isEmpty())
-                for(HashMapNode<K,V> node : oldList[i])
+        for (LinkedList<HashMapNode<K, V>> hashMapNodes : oldList)
+            if (!hashMapNodes.isEmpty())
+                for (HashMapNode<K, V> node : hashMapNodes)
                     put(node.key(), node.value());
     }
 

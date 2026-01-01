@@ -8,7 +8,7 @@ public final class Utilities {
     public static boolean isWebsiteURL(String url) {
         if(url == null || url.isEmpty())
             return false;
-        boolean valid = url.startsWith("http://") && url.startsWith("https://");
+        boolean valid = url.startsWith("http://") || url.startsWith("https://");
         boolean found = false;
         for(String format : IMAGE_FORMATS) {
             if(url.contains(format)) {
