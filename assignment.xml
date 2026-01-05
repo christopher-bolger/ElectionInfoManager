@@ -22,11 +22,25 @@
                   <votes>120</votes>
                   <position>1</position>
                 </content>
+                <next>
+                  <content class="electionInfoManager.model.election.ElectionEntry">
+                    <politician>
+                      <name>Joe Byrne</name>
+                      <affiliation>Social Democrats</affiliation>
+                      <county>Louth</county>
+                      <photoURL>https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/John_McGuire_119th_Congress.jpg/250px-John_McGuire_119th_Congress.jpg</photoURL>
+                      <DOB>1994-07-19</DOB>
+                    </politician>
+                    <affiliation>Social Democrats</affiliation>
+                    <votes>100</votes>
+                    <position>0</position>
+                  </content>
+                </next>
               </head>
-              <tail reference="../head"/>
+              <tail reference="../head/next"/>
             </politicians>
             <candidates>
-              <size>1</size>
+              <size>2</size>
               <list>
                 <electionInfoManager.model.linkedlist.LinkedList>
                   <head/>
@@ -39,16 +53,27 @@
                 <electionInfoManager.model.linkedlist.LinkedList>
                   <head>
                     <content class="electionInfoManager.model.hashmap.HashMapNode">
-                      <key class="electionInfoManager.model.election.Politician" reference="../../../../../../politicians/head/content/politician"/>
+                      <key class="electionInfoManager.model.election.Politician" reference="../../../../../../politicians/head/next/content/politician"/>
                       <value class="electionInfoManager.model.election.ElectionEntry">
-                        <politician reference="../../../../../../../politicians/head/content/politician"/>
-                        <affiliation>Fianna Gael</affiliation>
-                        <votes>120</votes>
+                        <politician reference="../../../../../../../politicians/head/next/content/politician"/>
+                        <affiliation>Social Democrats</affiliation>
+                        <votes>100</votes>
                         <position>0</position>
                       </value>
                     </content>
+                    <next>
+                      <content class="electionInfoManager.model.hashmap.HashMapNode">
+                        <key class="electionInfoManager.model.election.Politician" reference="../../../../../../../politicians/head/content/politician"/>
+                        <value class="electionInfoManager.model.election.ElectionEntry">
+                          <politician reference="../../../../../../../../politicians/head/content/politician"/>
+                          <affiliation>Fianna Gael</affiliation>
+                          <votes>120</votes>
+                          <position>0</position>
+                        </value>
+                      </content>
+                    </next>
                   </head>
-                  <tail reference="../head"/>
+                  <tail reference="../head/next"/>
                 </electionInfoManager.model.linkedlist.LinkedList>
                 <electionInfoManager.model.linkedlist.LinkedList>
                   <head/>
@@ -184,11 +209,14 @@
       <list>
         <head>
           <content class="electionInfoManager.model.election.Politician" reference="../../../../elections/list/head/content/politicians/head/content/politician"/>
+          <next>
+            <content class="electionInfoManager.model.election.Politician" reference="../../../../../elections/list/head/content/politicians/head/next/content/politician"/>
+          </next>
         </head>
-        <tail reference="../head"/>
+        <tail reference="../head/next"/>
       </list>
       <map>
-        <size>1</size>
+        <size>2</size>
         <list>
           <electionInfoManager.model.linkedlist.LinkedList>
             <head/>
@@ -201,11 +229,17 @@
           <electionInfoManager.model.linkedlist.LinkedList>
             <head>
               <content class="electionInfoManager.model.hashmap.HashMapNode">
-                <key class="int">-995430342</key>
-                <value class="electionInfoManager.model.election.Politician" reference="../../../../../../../elections/list/head/content/politicians/head/content/politician"/>
+                <key class="int">68746872</key>
+                <value class="electionInfoManager.model.election.Politician" reference="../../../../../../../elections/list/head/content/politicians/head/next/content/politician"/>
               </content>
+              <next>
+                <content class="electionInfoManager.model.hashmap.HashMapNode">
+                  <key class="int">-995430342</key>
+                  <value class="electionInfoManager.model.election.Politician" reference="../../../../../../../../elections/list/head/content/politicians/head/content/politician"/>
+                </content>
+              </next>
             </head>
-            <tail reference="../head"/>
+            <tail reference="../head/next"/>
           </electionInfoManager.model.linkedlist.LinkedList>
           <electionInfoManager.model.linkedlist.LinkedList>
             <head/>

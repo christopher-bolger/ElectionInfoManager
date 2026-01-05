@@ -72,6 +72,8 @@ public class Election {
         if(totalWinners > politicians.size())
             return null;
         LinkedList<ElectionEntry> temp = new LinkedList<>();
+        sortByVotes();
+        setPositions();
         switch(electionType){
             case "General", "Local", "European" -> { //realized because im using droop I have to do vote redistribution
                 temp = getTotalOverQuota();
@@ -108,9 +110,12 @@ public class Election {
                 temp.add(politicians.getFirst());
             }
         }
-        for(int i = 0; i < temp.size(); i++)
-            temp.get(i).setPosition(i+1);
         return temp;
+    }
+
+    public void setPositions(){
+        for(int i = 0; i < politicians.size(); i++)
+            politicians.get(i).setPosition(i+1);
     }
 
     private LinkedList<ElectionEntry> getTotalOverQuota(){

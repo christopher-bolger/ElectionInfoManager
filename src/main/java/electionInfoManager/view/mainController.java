@@ -131,6 +131,10 @@ public class mainController{
         Insertable insert =  insertLoader.getController();
         if(insert instanceof electionView)
             ((electionView) insert).setList(manager.getPoliticians());
+        if(insert instanceof politicianView) {
+            ((politicianView) insert).setElections(manager.getElections());
+            ((politicianView) insert).setPoliticians(manager.getPoliticians());
+        }
 
         FXMLLoader skeletonLoader = new FXMLLoader(getClass().getResource("/popoutSkeletonViews.fxml"));
         Parent skeletonRoot = skeletonLoader.load();
@@ -305,7 +309,7 @@ public class mainController{
     }
 
     public void updateSearchFilter(ActionEvent actionEvent) {
-        if(politicianTableView.isFocused())
+        if(actionEvent.getSource().equals(searchBox))
             searchFilter = searchOptionsComboBox.getValue();
         else
             searchFilter = searchOptionsElectionsComboBox.getValue();
@@ -313,7 +317,6 @@ public class mainController{
 
     public void searchElections(ActionEvent actionEvent){
         updateSearchFilter(actionEvent);
-        System.out.println(searchBox1.getText());
         showElectionResults(manager.searchElections(searchFilter, searchBox1.getText()));
     }
 
@@ -328,13 +331,10 @@ public class mainController{
 
     public void searchPoliticians(ActionEvent actionEvent) {
         updateSearchFilter(actionEvent);
-        System.out.println(searchBox.getText());
         showPoliticianResults(manager.searchPoliticians(searchFilter, searchBox.getText()));
     }
 
     public void showPoliticianResults(LinkedList<Politician> list){
-        System.out.println("Going to highlight now");
-        System.out.println(list);
         politicianTableView.getItems().clear();
         if(list == null || list.isEmpty())
             return;
@@ -350,5 +350,6 @@ public class mainController{
 
     public void sortByNameDESC(ActionEvent actionEvent){
         manager.sortPoliticians(Comparator.comparing(Politician::getName).reversed());
+        updatePoliticianView();
     }
 }

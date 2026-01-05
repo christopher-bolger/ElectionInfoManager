@@ -22,6 +22,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Comparator;
 
 public class electionView extends Insertable {
     public AnchorPane root;
@@ -59,9 +60,13 @@ public class electionView extends Insertable {
 
     public void updateWinners(){
         winnersView.getItems().clear();
+        winnersView.getItems().addAll(election.getCandidates());
+
+        ObservableList<ElectionEntry> winners = FXCollections.observableArrayList();
         if(!election.isEmpty())
-            for (ElectionEntry e : election.calculateResults())
-                winnersView.getItems().add(e);
+            winners.addAll(election.calculateResults());
+        for(ElectionEntry e : winners)
+            winnersView.getSelectionModel().select(e);
     }
 
     @Override
