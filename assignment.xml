@@ -1,0 +1,244 @@
+<object-stream>
+  <electionInfoManager.controller.ElectionInfoManager>
+    <elections>
+      <list>
+        <head>
+          <content class="electionInfoManager.model.election.Election">
+            <totalWinners>1</totalWinners>
+            <date>2024-01-10</date>
+            <electionLocation>Ireland</electionLocation>
+            <electionType>Presidential</electionType>
+            <politicians>
+              <head>
+                <content class="electionInfoManager.model.election.ElectionEntry">
+                  <politician>
+                    <name>David Brown</name>
+                    <affiliation>Fianna Fail</affiliation>
+                    <county>Cork</county>
+                    <photoURL>https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Harris_Mark_119th_Congress_%28crop2%29.jpg/250px-Harris_Mark_119th_Congress_%28crop2%29.jpg</photoURL>
+                    <DOB>2018-01-08</DOB>
+                  </politician>
+                  <affiliation>Fianna Fail</affiliation>
+                  <votes>100</votes>
+                  <position>0</position>
+                </content>
+              </head>
+              <tail reference="../head"/>
+            </politicians>
+            <candidates>
+              <size>1</size>
+              <list>
+                <electionInfoManager.model.linkedlist.LinkedList>
+                  <head/>
+                  <tail reference="../head"/>
+                </electionInfoManager.model.linkedlist.LinkedList>
+                <electionInfoManager.model.linkedlist.LinkedList>
+                  <head>
+                    <content class="electionInfoManager.model.hashmap.HashMapNode">
+                      <key class="electionInfoManager.model.election.Politician" reference="../../../../../../politicians/head/content/politician"/>
+                      <value class="electionInfoManager.model.election.ElectionEntry">
+                        <politician reference="../../../../../../../politicians/head/content/politician"/>
+                        <affiliation>Fianna Fail</affiliation>
+                        <votes>0</votes>
+                        <position>0</position>
+                      </value>
+                    </content>
+                  </head>
+                  <tail reference="../head"/>
+                </electionInfoManager.model.linkedlist.LinkedList>
+                <electionInfoManager.model.linkedlist.LinkedList>
+                  <head/>
+                  <tail reference="../head"/>
+                </electionInfoManager.model.linkedlist.LinkedList>
+                <electionInfoManager.model.linkedlist.LinkedList>
+                  <head/>
+                  <tail reference="../head"/>
+                </electionInfoManager.model.linkedlist.LinkedList>
+                <electionInfoManager.model.linkedlist.LinkedList>
+                  <head/>
+                  <tail reference="../head"/>
+                </electionInfoManager.model.linkedlist.LinkedList>
+                <electionInfoManager.model.linkedlist.LinkedList>
+                  <head/>
+                  <tail reference="../head"/>
+                </electionInfoManager.model.linkedlist.LinkedList>
+                <electionInfoManager.model.linkedlist.LinkedList>
+                  <head/>
+                  <tail reference="../head"/>
+                </electionInfoManager.model.linkedlist.LinkedList>
+                <electionInfoManager.model.linkedlist.LinkedList>
+                  <head/>
+                  <tail reference="../head"/>
+                </electionInfoManager.model.linkedlist.LinkedList>
+                <electionInfoManager.model.linkedlist.LinkedList>
+                  <head/>
+                  <tail reference="../head"/>
+                </electionInfoManager.model.linkedlist.LinkedList>
+                <electionInfoManager.model.linkedlist.LinkedList>
+                  <head/>
+                  <tail reference="../head"/>
+                </electionInfoManager.model.linkedlist.LinkedList>
+              </list>
+            </candidates>
+          </content>
+        </head>
+        <tail reference="../head"/>
+      </list>
+      <map>
+        <size>1</size>
+        <list>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head>
+              <content class="electionInfoManager.model.hashmap.HashMapNode">
+                <key class="int">2135</key>
+                <value class="electionInfoManager.model.election.Election" reference="../../../../../../list/head/content"/>
+              </content>
+            </head>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+        </list>
+      </map>
+      <affiliations>
+        <size>0</size>
+        <list>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+        </list>
+      </affiliations>
+    </elections>
+    <politicians>
+      <list>
+        <head>
+          <content class="electionInfoManager.model.election.Politician" reference="../../../../elections/list/head/content/politicians/head/content/politician"/>
+        </head>
+        <tail reference="../head"/>
+      </list>
+      <map>
+        <size>1</size>
+        <list>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head>
+              <content class="electionInfoManager.model.hashmap.HashMapNode">
+                <key class="int">-201598961</key>
+                <value class="electionInfoManager.model.election.Politician" reference="../../../../../../../elections/list/head/content/politicians/head/content/politician"/>
+              </content>
+            </head>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+        </list>
+      </map>
+    </politicians>
+    <name>assignment</name>
+    <file>assignment.xml</file>
+  </electionInfoManager.controller.ElectionInfoManager>
+</object-stream>
