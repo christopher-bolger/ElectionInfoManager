@@ -1,24 +1,30 @@
-package model.election;
+package electionInfoManager.model.election;
 
-import model.hashmap.CustomHashMap;
-import model.linkedlist.LinkedList;
-import utility.Sort;
+import electionInfoManager.model.hashmap.CustomHashMap;
+import electionInfoManager.model.linkedlist.LinkedList;
+import electionInfoManager.utility.Sort;
 
 import java.time.LocalDate;
 import java.util.Comparator;
 
 public class Election {
     public final static String[] ELECTION_TYPES = {"General", "Local", "European", "Presidential"};
-    int electionType, totalWinners;
+    int totalWinners;
     LocalDate date;
-    String electionLocation;
+    String electionLocation, electionType;
     LinkedList<ElectionEntry> politicians;
     CustomHashMap<Politician, ElectionEntry> candidates;
 
-    public Election(int type, LocalDate date, int winners, String location) {
-        if(type < 4)
-            electionType = Math.max(type, 0);
-        else electionType = type%4;
+    public Election(String type, LocalDate date, int winners, String location) {
+        if(type != null && !type.isEmpty())
+            for(String s : ELECTION_TYPES)
+                if(type.equalsIgnoreCase(s)) {
+                    electionType = s;
+                    break;
+                }
+        if(electionType == null)
+            electionType = "General";
+
         totalWinners = Math.max(winners, 1);
 
         if(date != null)
@@ -26,14 +32,20 @@ public class Election {
         else this.date = LocalDate.now();
 
         if(location != null && !location.isEmpty())
-            for(int i = 0; i < Politician.COUNTIES.length; i++)
-                if(Politician.COUNTIES[i].equals(location))
-                    electionLocation = Politician.COUNTIES[i];
+            electionLocation = location;
         if(electionLocation != null && electionLocation.isEmpty())
             electionLocation = "INVALID";
 
         politicians = new LinkedList<>();
         candidates = new CustomHashMap<>();
+    }
+
+    public boolean updateVotes(Politician p, int votes){
+        if(candidates.get(p) != null){
+            candidates.get(p).setVotes(Math.max(votes, 0));
+            return true;
+        }
+        return false;
     }
 
     public void sortByVotes(){
@@ -60,7 +72,7 @@ public class Election {
             return null;
         LinkedList<ElectionEntry> temp = new LinkedList<>();
         switch(electionType){
-            case 0,1,2 -> { //realized because im using droop I have to do vote redistribution
+            case "General", "Local", "European" -> { //realized because im using droop I have to do vote redistribution
                 temp = getTotalOverQuota();
                 LinkedList<ElectionEntry> takenVotes = new LinkedList<>();
                 while(temp.size() < totalWinners){
@@ -90,8 +102,13 @@ public class Election {
                     temp = getTotalOverQuota();
                 }
             }
-            case 3 -> temp.add(politicians.getFirst());
+            case "Presidential" -> {
+                sortByVotes();
+                temp.add(politicians.getFirst());
+            }
         }
+        for(int i = 0; i < temp.size(); i++)
+            temp.get(i).setPosition(i+1);
         return temp;
     }
 
@@ -109,15 +126,19 @@ public class Election {
         candidates.put(politician, new ElectionEntry(politician));
     }
 
+    public boolean isEmpty(){
+        return politicians.isEmpty() || politicians.size() < totalWinners;
+    }
+
     public void add(Politician politician, int votes){
         politicians.add(new ElectionEntry(politician, votes));
         candidates.put(politician, new ElectionEntry(politician));
         candidates.get(politician).setVotes(votes);
     }
 
-    public void remove(Politician politician){
-        politicians.remove(candidates.get(politician));
-        candidates.remove(politician);
+    public boolean remove(Politician politician){
+        return politicians.remove(candidates.get(politician)) &&
+         candidates.remove(politician);
     }
 
     public String getAffiliation(Politician politician){
@@ -132,12 +153,44 @@ public class Election {
         return date;
     }
 
+    public void setDate(LocalDate date){
+        if(date != null)
+            this.date = date;
+    }
+
     public String getElectionType(){
-        return ELECTION_TYPES[electionType];
+        return electionType;
+    }
+
+    public void setElectionType(String type){
+        if(type != null && !type.isEmpty())
+            for(String s : ELECTION_TYPES)
+                if(type.equalsIgnoreCase(s)) {
+                    electionType = s;
+                    break;
+                }
     }
 
     public String getElectionLocation(){
         return electionLocation;
+    }
+
+    public void setElectionLocation(String location){
+        if(location != null && !location.isEmpty())
+            electionLocation = location;
+    }
+
+    public int getWinners(){
+        return totalWinners;
+    }
+
+    public void setWinners(int winners){
+        if(winners > 0)
+            totalWinners = winners;
+    }
+
+    public ElectionEntry find(ElectionEntry e){
+        return candidates.get(e.getPolitician());
     }
 
     public int hashCode(){

@@ -1,6 +1,6 @@
-package model.election;
+package electionInfoManager.model.election;
 
-import utility.Utilities;
+import electionInfoManager.utility.Utilities;
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -14,7 +14,7 @@ public class Politician{
             "Westmeath", "Wexford", "Wicklow"
     };
     public final static String[] ELECTION_PARTIES = {"Independent", "Fianna Fail", "Fianna Gael", "Sinn Fein", "Labour Party", "People Before Profit", "Aontu", "Green Party", "Social Democrats", "Independent Ireland"};
-
+    public final static String[] FIELDS = {"Name", "Affiliation", "County", "PhotoURL", "DOB"};
     private String name, affiliation, county, photoURL;
     private LocalDate DOB;
 

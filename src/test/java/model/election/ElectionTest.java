@@ -1,6 +1,9 @@
 package model.election;
 
-import model.linkedlist.LinkedList;
+import electionInfoManager.model.election.Election;
+import electionInfoManager.model.election.ElectionEntry;
+import electionInfoManager.model.election.Politician;
+import electionInfoManager.model.linkedlist.LinkedList;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -36,7 +39,7 @@ class ElectionTest {
         p8 = new Politician("Holly Cairns", "Social Democrats", "Cork", "https://upload.wikimedia.org/wikipedia/commons/9/9a/Holly_Cairns_2023.jpg", LocalDate.of(1989, 11, 4));
 
         //public Election(int type, LocalDate date, int winners, String location)
-        e1 = new Election(3, LocalDate.of(2025, 10, 12), 1, "Dublin");
+        e1 = new Election("Presidential", LocalDate.of(2025, 10, 12), 1, "Dublin");
         e1.add(p1, 10000);
         e1.add(p2, 9643);
         e1.add(p3, 192);
@@ -45,7 +48,7 @@ class ElectionTest {
         e1.add(p6, 9462);
         e1.add(p7, 100);
 
-        e2 = new Election(0, LocalDate.of(2020, 1, 31), 4, "Dublin");
+        e2 = new Election("General", LocalDate.of(2020, 1, 31), 4, "Dublin");
         e2.add(p1, 9264);
         e2.add(p2, 9643);
         e2.add(p3, 2495);

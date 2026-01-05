@@ -1,6 +1,6 @@
-package utility;
+package electionInfoManager.utility;
 
-import model.linkedlist.LinkedList;
+import electionInfoManager.model.linkedlist.LinkedList;
 import java.util.Comparator;
 
 public final class Sort{

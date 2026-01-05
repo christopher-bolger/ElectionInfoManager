@@ -1,6 +1,6 @@
-package controller;
-import model.hashmap.CustomHashMap;
-import model.linkedlist.LinkedList;
+package electionInfoManager.controller;
+import electionInfoManager.model.hashmap.CustomHashMap;
+import electionInfoManager.model.linkedlist.LinkedList;
 
 public abstract class Manager<E> {
     protected LinkedList<E> list;
@@ -30,12 +30,25 @@ public abstract class Manager<E> {
         return null;
     }
 
+    public void set(LinkedList<E> toAdd){
+        list.addAll(toAdd);
+    }
+
     public E find(E e){
         return map.get(e.hashCode());
     }
 
     public LinkedList<E> getList(){
         return list;
+    }
+
+    public CustomHashMap<Integer, E> getMap(){
+        return map;
+    }
+
+    public void setMap(CustomHashMap<Integer, E> toAdd){
+        if(toAdd != null)
+            map = toAdd;
     }
 
     public abstract void sort();

@@ -1,10 +1,10 @@
-package controller;
+package electionInfoManager.controller;
 
-import model.election.Election;
-import model.election.Politician;
-import model.hashmap.CustomHashMap;
-import model.linkedlist.LinkedList;
-import utility.Sort;
+import electionInfoManager.model.election.Election;
+import electionInfoManager.model.election.Politician;
+import electionInfoManager.model.hashmap.CustomHashMap;
+import electionInfoManager.model.linkedlist.LinkedList;
+import electionInfoManager.utility.Sort;
 import java.util.Comparator;
 
 public class ElectionManager extends Manager<Election> {
@@ -41,6 +41,18 @@ public class ElectionManager extends Manager<Election> {
             super.find(election).remove(pol);
             affiliations.get(pol).remove(pol.getAffiliation());
             return true;
+        }
+        return false;
+    }
+
+    public boolean updateElection(Election current, Election updated){
+        if(map.get(current.hashCode()) != null && updated != null) {
+            Election toUpdate = map.get(current.hashCode());
+            toUpdate.setElectionType(updated.getElectionType());
+            toUpdate.setDate(updated.getDate());
+            toUpdate.setWinners(updated.getWinners());
+            toUpdate.setElectionLocation(updated.getElectionLocation());
+            return toUpdate.equals(updated);
         }
         return false;
     }

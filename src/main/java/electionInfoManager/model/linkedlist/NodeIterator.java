@@ -1,4 +1,4 @@
-package model.linkedlist;
+package electionInfoManager.model.linkedlist;
 
 import java.util.Iterator;
 import java.util.function.Consumer;

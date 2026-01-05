@@ -1,7 +1,8 @@
 package utility;
 
-import model.linkedlist.LinkedList;
+import electionInfoManager.model.linkedlist.LinkedList;
 
+import electionInfoManager.utility.Sort;
 import org.junit.jupiter.api.*;
 import java.util.Comparator;
 import static org.junit.jupiter.api.Assertions.*;

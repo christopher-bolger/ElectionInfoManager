@@ -1,6 +1,6 @@
-package model.hashmap;
+package electionInfoManager.model.hashmap;
 
-import model.linkedlist.LinkedList;
+import electionInfoManager.model.linkedlist.LinkedList;
 
 // I think this covers what I need
 public class CustomHashMap<K, V>{
@@ -26,17 +26,20 @@ public class CustomHashMap<K, V>{
         //System.out.println(key.hashCode());
         int index = Math.abs(key.hashCode())%list.length;
         for(HashMapNode<K,V> node : list[index])
-            if(node.key().equals(key))
-                return node.value();
+            if(node != null && node.key.equals(key))
+                return node.value;
         return null;
     }
 
-    public void remove(K key) {
-        int index = key.hashCode()%list.length;
+    public boolean remove(K key) {
+        int index = Math.abs(key.hashCode())%list.length;
         for(HashMapNode<K,V> node : list[index])
-            if(node.key().equals(key))
-                if(list[index].remove(node))
+            if(node.key.equals(key))
+                if(list[index].remove(node)) {
                     size--;
+                    return true;
+                }
+        return false;
     }
 
     private void rehash() {
@@ -47,7 +50,7 @@ public class CustomHashMap<K, V>{
         for (LinkedList<HashMapNode<K, V>> hashMapNodes : oldList)
             if (!hashMapNodes.isEmpty())
                 for (HashMapNode<K, V> node : hashMapNodes)
-                    put(node.key(), node.value());
+                    put(node.key, node.value);
     }
 
     public LinkedList<K> getKeys(){
@@ -57,7 +60,7 @@ public class CustomHashMap<K, V>{
         for(int i = 0; i < list.length; i++){
             if(!list[i].isEmpty())
                 for(HashMapNode<K,V> node : list[i])
-                    keys.add(node.key());
+                    keys.add(node.key);
         }
         return keys;
     }

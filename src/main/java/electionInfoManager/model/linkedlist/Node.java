@@ -1,4 +1,4 @@
-package model.linkedlist;
+package electionInfoManager.model.linkedlist;
 
 public class Node<E>{
     private E content;

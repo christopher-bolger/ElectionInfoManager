@@ -1,9 +1,11 @@
-package model.election;
+package electionInfoManager.model.election;
+
+import java.util.Objects;
 
 public class ElectionEntry{
     private final Politician politician;
     private final String affiliation;
-    private int votes;
+    private int votes, position = 0;
 
     public ElectionEntry(Politician politician) {
         this.politician = politician;
@@ -16,8 +18,16 @@ public class ElectionEntry{
         this.votes = Math.max(votes, 0);
     }
 
+    public String getName(){
+        return politician.getName();
+    }
+
     public Politician getPolitician() {
         return politician;
+    }
+
+    public String getCounty(){
+        return politician.getCounty();
     }
 
     public String getAffiliation() {
@@ -33,13 +43,30 @@ public class ElectionEntry{
             this.votes = votes;
     }
 
+    public void setPosition(int pos){
+        if(pos > 0)
+            position = pos;
+    }
+
+    public int getPosition(){
+        return position;
+    }
+
     public void addVotes(int votes) {
         if(votes > 0)
             this.votes += votes;
     }
 
     @Override
-    public int hashCode(){
-        return politician.hashCode();
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ElectionEntry that = (ElectionEntry) o;
+        return Objects.equals(politician, that.politician);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(politician);
     }
 }

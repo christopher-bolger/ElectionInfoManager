@@ -1,15 +1,19 @@
-package controller;
+package electionInfoManager.controller;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
-import model.election.Election;
-import model.election.ElectionEntry;
-import model.election.Politician;
+import electionInfoManager.model.election.Election;
+import electionInfoManager.model.election.ElectionEntry;
+import electionInfoManager.model.election.Politician;
+import electionInfoManager.model.hashmap.CustomHashMap;
+import electionInfoManager.model.hashmap.HashMapNode;
+import electionInfoManager.model.linkedlist.LinkedList;
+
 import java.io.*;
 
 public class ElectionInfoManager{
-    private ElectionManager elections = new ElectionManager();
-    private PoliticianManager politicians = new PoliticianManager();
+    private final ElectionManager elections = new ElectionManager();
+    private final PoliticianManager politicians = new PoliticianManager();
     private String name;
     private File file;
 
@@ -17,7 +21,7 @@ public class ElectionInfoManager{
         if(name != null && !name.isEmpty())
             this.name = name;
         else this.name = "unnamed";
-        file = new File(name);
+        file = new File(name + ".xml");
     }
 
     public String getName(){
@@ -25,11 +29,11 @@ public class ElectionInfoManager{
     }
 
     public void setName(String name){
-        String oldname = this.name;
+        String oldName = this.name;
         if(name != null && !name.isEmpty())
             this.name = name;
         else this.name = "unnamed";
-        if(!oldname.equals(this.name))
+        if(!oldName.equals(this.name))
             file = new File(name);
     }
 
@@ -51,6 +55,48 @@ public class ElectionInfoManager{
             return true;
         }
         return false;
+    }
+
+    public boolean updatePolitician(Politician current, Politician updated){
+        return politicians.updatePolitician(current, updated);
+    }
+
+    public boolean updateElection(Election current, Election updated){
+        return elections.updateElection(current, updated);
+    }
+
+    public LinkedList<Politician> getPoliticians(){
+        return politicians.getList();
+    }
+
+    public void setPoliticians(LinkedList<Politician> p){
+        if(p != null && !p.isEmpty())
+            politicians.set(p);
+    }
+
+    public LinkedList<Election> getElections(){
+        return elections.getList();
+    }
+
+    public CustomHashMap<Integer, Election> getElectionsMap(){
+        return elections.getMap();
+    }
+
+    public void setElectionsMap(CustomHashMap<Integer, Election> e){
+        elections.setMap(e);
+    }
+
+    public void setElections(LinkedList<Election> e){
+        if(e != null && !e.isEmpty())
+            elections.set(e);
+    }
+
+    public CustomHashMap<Integer, Politician> getPoliticiansMap(){
+        return politicians.getMap();
+    }
+
+    public void setPoliticiansMap(CustomHashMap<Integer, Politician> p){
+        politicians.setMap(p);
     }
 
     public boolean addElection(Election e){
@@ -79,9 +125,9 @@ public class ElectionInfoManager{
         os.close();
     }
 
-    public void load() throws IOException, ClassNotFoundException {
+    public void load(File file) throws IOException, ClassNotFoundException {
         //list of classes that you wish to include in the serialisation, separated by a comma
-        Class<?>[] classes = new Class[]{ElectionInfoManager.class, ElectionManager.class, PoliticianManager.class, Politician.class, Election.class, ElectionEntry.class};
+        Class<?>[] classes = new Class[]{ElectionInfoManager.class, ElectionManager.class, PoliticianManager.class, Politician.class, Election.class, ElectionEntry.class, CustomHashMap.class, HashMapNode.class, LinkedList.class};
 
         //setting up the xstream object with default security and the above classes
         XStream xstream = new XStream(new DomDriver());
@@ -94,5 +140,9 @@ public class ElectionInfoManager{
         in.close();
         setName(loaded.getName());
         setFile(loaded.getFile());
+        setPoliticians(loaded.getPoliticians());
+        setPoliticiansMap(loaded.getPoliticiansMap());
+        setElections(loaded.getElections());
+        setElectionsMap(loaded.getElectionsMap());
     }
 }

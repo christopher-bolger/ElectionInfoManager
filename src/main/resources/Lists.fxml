@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1"> <!-- fx:controller="electionInfoManager.view.mainController" -->
+   <children>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab text="Politicians">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <TableView fx:id="politicianTableView" onMouseReleased="#updateSelectedEntity" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                <columns>
+                                  <TableColumn fx:id="politicianIndex" editable="false" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="20.0" text="#" />
+                                  <TableColumn fx:id="politicianName" editable="false" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="143.0" text="Name" />
+                                    <TableColumn fx:id="politicianAffiliation" editable="false" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="143.0" text="Affiliation" />
+                                    <TableColumn fx:id="politicianCounty" editable="false" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="143.0" text="County" />
+                                    <TableColumn fx:id="politicianDOB" editable="false" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="143.0" text="DOB" />
+                                </columns>
+                              </TableView>
+                              <ButtonBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="200.0">
+                                <buttons>
+                                  <Button mnemonicParsing="false" onAction="#startAddPolitician" text="Add" />
+                                    <Button fx:id="viewButton" disable="true" layoutX="535.0" layoutY="18.0" mnemonicParsing="false" onAction="#viewSelectedItem" text="View Selected" />
+                                </buttons>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </ButtonBar>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Elections">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <TableView fx:id="electionTableView" onMouseReleased="#updateSelectedEntity" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                 <columns>
+                                    <TableColumn fx:id="electionIndex" editable="false" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="20.0" text="#" />
+                                    <TableColumn fx:id="electionType" editable="false" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="143.0" text="Type" />
+                                    <TableColumn fx:id="electionDate" editable="false" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="143.0" text="Date" />
+                                    <TableColumn fx:id="electionWinners" editable="false" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="143.0" text="Winners" />
+                                    <TableColumn fx:id="electionLocation" editable="false" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="143.0" text="Location" />
+                                 </columns>
+                              </TableView>
+                              <ButtonBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="200.0">
+                                 <buttons>
+                                    <Button mnemonicParsing="false" onAction="#startAddElection" text="Add" />
+                                    <Button layoutX="535.0" layoutY="18.0" mnemonicParsing="false" onAction="#viewSelectedItem" text="View Selected" />
+                                 </buttons>
+                              </ButtonBar>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
