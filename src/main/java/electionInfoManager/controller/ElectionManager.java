@@ -76,8 +76,36 @@ public class ElectionManager extends Manager<Election> {
     }
 
     @Override
-    public void sort() {
-        Sort.mergeSort(list, Comparator.comparing(Election::getDate));
+    public void sort(Comparator<Election> e) {
+        Sort.mergeSort(list, e);
+    }
+
+    @Override
+    public LinkedList<Election> search(String searchFilter, String text) {
+        LinkedList<Election> result = new LinkedList<>();
+        if(list.isEmpty())
+            return result;
+        for(Election p : list){
+            switch(searchFilter){
+                case "Location" -> {
+                    if(p.getElectionLocation().toLowerCase().contains(text.toLowerCase()))
+                        result.add(p);
+                }
+                case "Type" -> {
+                    if(p.getElectionType().toLowerCase().contains(text.toLowerCase()))
+                        result.add(p);
+                }
+                case "Date" -> {
+                    if(p.getDate().toString().toLowerCase().contains(text.toLowerCase()))
+                        result.add(p);
+                }
+                default -> {
+                    if(Integer.toString(p.getWinners()).contains(text.toLowerCase()))
+                        result.add(p);
+                }
+            }
+        }
+        return result;
     }
 
     public void sortByType(){

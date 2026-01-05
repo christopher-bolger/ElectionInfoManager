@@ -54,8 +54,13 @@ public class electionView extends Insertable {
         affiliationColumn.setCellValueFactory(new PropertyValueFactory<>("affiliation"));
         votesColumn.setCellValueFactory(new PropertyValueFactory<>("votes"));
         positionColumn.setCellValueFactory(new PropertyValueFactory<>("position"));
+        updateWinners();
+    }
+
+    public void updateWinners(){
+        winnersView.getItems().clear();
         if(!election.isEmpty())
-            for(ElectionEntry e : election.calculateResults())
+            for (ElectionEntry e : election.calculateResults())
                 winnersView.getItems().add(e);
     }
 
@@ -81,7 +86,7 @@ public class electionView extends Insertable {
         Node insertNode = insertLoader.load();
         addPoliticiansToElection insert =  insertLoader.getController();
 
-        FXMLLoader skeletonLoader = new FXMLLoader(getClass().getResource("/popoutSkeleton.fxml"));
+        FXMLLoader skeletonLoader = new FXMLLoader(getClass().getResource("/popoutSkeletonViews.fxml"));
         Parent skeletonRoot = skeletonLoader.load();
         PopoutMenu skeletonController = skeletonLoader.getController();
 
@@ -94,6 +99,7 @@ public class electionView extends Insertable {
         stage.setScene(new Scene(skeletonRoot));
         stage.showAndWait();
         election = skeletonController.cancelled ? election : (Election) insert.getResult();
+        updateWinners();
     }
 
     public void viewSelectedCandidate(ActionEvent actionEvent) throws IOException {
@@ -102,7 +108,7 @@ public class electionView extends Insertable {
         Node insertNode = insertLoader.load();
         Insertable insert =  insertLoader.getController();
 
-        FXMLLoader skeletonLoader = new FXMLLoader(getClass().getResource("/popoutSkeleton.fxml"));
+        FXMLLoader skeletonLoader = new FXMLLoader(getClass().getResource("/popoutSkeletonViews.fxml"));
         Parent skeletonRoot = skeletonLoader.load();
         PopoutMenu skeletonController = skeletonLoader.getController();
 

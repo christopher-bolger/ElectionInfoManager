@@ -14,13 +14,13 @@
                   <politician>
                     <name>David Brown</name>
                     <affiliation>Fianna Fail</affiliation>
-                    <county>Cork</county>
+                    <county>Donegal</county>
                     <photoURL>https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Harris_Mark_119th_Congress_%28crop2%29.jpg/250px-Harris_Mark_119th_Congress_%28crop2%29.jpg</photoURL>
-                    <DOB>2018-01-08</DOB>
+                    <DOB>1975-01-08</DOB>
                   </politician>
-                  <affiliation>Fianna Fail</affiliation>
-                  <votes>100</votes>
-                  <position>0</position>
+                  <affiliation>Fianna Gael</affiliation>
+                  <votes>120</votes>
+                  <position>1</position>
                 </content>
               </head>
               <tail reference="../head"/>
@@ -33,21 +33,21 @@
                   <tail reference="../head"/>
                 </electionInfoManager.model.linkedlist.LinkedList>
                 <electionInfoManager.model.linkedlist.LinkedList>
+                  <head/>
+                  <tail reference="../head"/>
+                </electionInfoManager.model.linkedlist.LinkedList>
+                <electionInfoManager.model.linkedlist.LinkedList>
                   <head>
                     <content class="electionInfoManager.model.hashmap.HashMapNode">
                       <key class="electionInfoManager.model.election.Politician" reference="../../../../../../politicians/head/content/politician"/>
                       <value class="electionInfoManager.model.election.ElectionEntry">
                         <politician reference="../../../../../../../politicians/head/content/politician"/>
-                        <affiliation>Fianna Fail</affiliation>
-                        <votes>0</votes>
+                        <affiliation>Fianna Gael</affiliation>
+                        <votes>120</votes>
                         <position>0</position>
                       </value>
                     </content>
                   </head>
-                  <tail reference="../head"/>
-                </electionInfoManager.model.linkedlist.LinkedList>
-                <electionInfoManager.model.linkedlist.LinkedList>
-                  <head/>
                   <tail reference="../head"/>
                 </electionInfoManager.model.linkedlist.LinkedList>
                 <electionInfoManager.model.linkedlist.LinkedList>
@@ -195,16 +195,16 @@
             <tail reference="../head"/>
           </electionInfoManager.model.linkedlist.LinkedList>
           <electionInfoManager.model.linkedlist.LinkedList>
-            <head>
-              <content class="electionInfoManager.model.hashmap.HashMapNode">
-                <key class="int">-201598961</key>
-                <value class="electionInfoManager.model.election.Politician" reference="../../../../../../../elections/list/head/content/politicians/head/content/politician"/>
-              </content>
-            </head>
+            <head/>
             <tail reference="../head"/>
           </electionInfoManager.model.linkedlist.LinkedList>
           <electionInfoManager.model.linkedlist.LinkedList>
-            <head/>
+            <head>
+              <content class="electionInfoManager.model.hashmap.HashMapNode">
+                <key class="int">-995430342</key>
+                <value class="electionInfoManager.model.election.Politician" reference="../../../../../../../elections/list/head/content/politicians/head/content/politician"/>
+              </content>
+            </head>
             <tail reference="../head"/>
           </electionInfoManager.model.linkedlist.LinkedList>
           <electionInfoManager.model.linkedlist.LinkedList>

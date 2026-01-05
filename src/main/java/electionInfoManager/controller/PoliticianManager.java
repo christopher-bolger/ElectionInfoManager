@@ -66,7 +66,39 @@ public class PoliticianManager extends Manager<Politician> {
     }
 
     @Override
-    public void sort() {
-        Sort.mergeSort(list, Comparator.comparing(Politician::getName));
+    public void sort(Comparator<Politician> c) {
+        Sort.mergeSort(list, c);
+    }
+
+    @Override
+    public LinkedList<Politician> search(String searchFilter, String text) {
+        LinkedList<Politician> result = new LinkedList<>();
+        if(list.isEmpty())
+            return result;
+        for(Politician p : list){
+            switch(searchFilter){
+                case "Name" -> {
+                    if(p.getName().toLowerCase().contains(text.toLowerCase()))
+                        result.add(p);
+                }
+                case "Affiliation" -> {
+                    if(p.getAffiliation().toLowerCase().contains(text.toLowerCase()))
+                        result.add(p);
+                }
+                case "County" -> {
+                    if(p.getCounty().toLowerCase().contains(text.toLowerCase()))
+                        result.add(p);
+                }
+                case "DOB" -> {
+                    if(p.getDOB().toString().contains(text.toLowerCase()))
+                        result.add(p);
+                }
+                default -> {
+                    if(p.getPhotoURL().toLowerCase().contains(text.toLowerCase()))
+                        result.add(p);
+                }
+            }
+        }
+        return result;
     }
 }

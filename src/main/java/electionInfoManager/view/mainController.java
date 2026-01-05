@@ -22,6 +22,7 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.Comparator;
 
 public class mainController{
     public HBox content;
@@ -46,6 +47,11 @@ public class mainController{
     public TableColumn<Election, String> electionLocation;
     public TableColumn<Election, String> electionDate;
     public TableColumn<Election, Integer> electionWinners;
+    public ComboBox<String> searchOptionsComboBox;
+    public ComboBox<String> searchOptionsElectionsComboBox;
+    public String searchFilter;
+    public TextField searchBox;
+    public TextField searchBox1;
     ElectionInfoManager manager;
     public MenuBar menuBar;
     Object selectedEntity;
@@ -74,22 +80,22 @@ public class mainController{
 
     public void updatePoliticianView(){
         LinkedList<Politician> politicians = manager.getPoliticians();
+        politicianTableView.getItems().clear();
         if(politicians == null || politicians.isEmpty())
             return;
 //        ObservableList<Politician> data = FXCollections.observableArrayList(politicians);
         ObservableList<Politician> data = FXCollections.observableArrayList();
         data.addAll(politicians);
-        politicianTableView.getItems().clear();
         politicianTableView.setItems(data);
     }
 
     public void updateElectionView(){
         LinkedList<Election> elections = manager.getElections();
+        electionTableView.getItems().clear();
         if(elections == null || elections.isEmpty())
             return;
         ObservableList<Election> data = FXCollections.observableArrayList();
         data.addAll(elections);
-        electionTableView.getItems().clear();
         electionTableView.setItems(data);
     }
 
@@ -99,10 +105,7 @@ public class mainController{
         if(updatedPolitician == null)
             return;
         if(manager.updatePolitician(oldPolitician, updatedPolitician))
-            System.out.println("Updated politician");
-        else
-            System.out.println("Failed to update politician");
-        updatePoliticianView();
+            updatePoliticianView();
     }
 
     public void editElection() throws IOException {
@@ -129,7 +132,7 @@ public class mainController{
         if(insert instanceof electionView)
             ((electionView) insert).setList(manager.getPoliticians());
 
-        FXMLLoader skeletonLoader = new FXMLLoader(getClass().getResource("/popoutSkeleton.fxml"));
+        FXMLLoader skeletonLoader = new FXMLLoader(getClass().getResource("/popoutSkeletonViews.fxml"));
         Parent skeletonRoot = skeletonLoader.load();
         PopoutMenu skeletonController = skeletonLoader.getController();
 
@@ -141,29 +144,6 @@ public class mainController{
         stage.setScene(new Scene(skeletonRoot));
         stage.showAndWait();
     }
-
-    public void viewPolitician() throws IOException {
-
-    }
-
-    public void viewElection() throws IOException {
-        FXMLLoader insertLoader = new FXMLLoader(getClass().getResource("/electionView.fxml"));
-        Node insertNode = insertLoader.load();
-        Insertable insert =  insertLoader.getController();
-
-        FXMLLoader skeletonLoader = new FXMLLoader(getClass().getResource("/popoutSkeleton.fxml"));
-        Parent skeletonRoot = skeletonLoader.load();
-        PopoutMenu skeletonController = skeletonLoader.getController();
-
-        skeletonController.initialize(insert); // Pass controller here
-        insert.edit(selectedEntity);
-
-        Stage stage = new Stage();
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setScene(new Scene(skeletonRoot));
-        stage.showAndWait();
-    }
-
 
     public void setTables(){
         politicianIndex.setCellValueFactory(cd -> new ReadOnlyObjectWrapper<>(politicianTableView.getItems().indexOf(cd.getValue()) + 1));
@@ -177,6 +157,16 @@ public class mainController{
         electionLocation.setCellValueFactory(new PropertyValueFactory<>("electionLocation"));
         electionDate.setCellValueFactory(new PropertyValueFactory<>("date"));
         politicianTableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
+
+        ObservableList<String> list = FXCollections.observableArrayList();
+        list.addAll(Politician.FIELDS);
+        searchOptionsComboBox.setItems(list);
+        searchOptionsComboBox.getSelectionModel().clearAndSelect(0);
+
+        ObservableList<String> list2 = FXCollections.observableArrayList();
+        list2.addAll(Election.FIELDS);
+        searchOptionsElectionsComboBox.setItems(list2);
+        searchOptionsElectionsComboBox.getSelectionModel().clearAndSelect(0);
     }
 
     public void openExplorer(ActionEvent actionEvent) throws Exception {
@@ -285,6 +275,24 @@ public class mainController{
     }
 
     public void deleteSelectedEntity(ActionEvent actionEvent) {
+        if(selectedEntity == null)
+            return;
+        if(selectedEntity instanceof Politician)
+            deleteSelectedPolitician();
+        else
+            deleteSelectedElection();
+    }
+
+    public void deleteSelectedPolitician(){
+        Politician p = (Politician) selectedEntity;
+        manager.removeEveryInstance(p);
+        updatePoliticianView();
+    }
+
+    public void deleteSelectedElection(){
+        Election e = (Election) selectedEntity;
+        manager.removeElection(e);
+        updateElectionView();
     }
 
     public void editSelectedEntity(ActionEvent actionEvent) throws IOException {
@@ -294,5 +302,53 @@ public class mainController{
             editPolitician();
         if(selectedEntity instanceof Election)
             editElection();
+    }
+
+    public void updateSearchFilter(ActionEvent actionEvent) {
+        if(politicianTableView.isFocused())
+            searchFilter = searchOptionsComboBox.getValue();
+        else
+            searchFilter = searchOptionsElectionsComboBox.getValue();
+    }
+
+    public void searchElections(ActionEvent actionEvent){
+        updateSearchFilter(actionEvent);
+        System.out.println(searchBox1.getText());
+        showElectionResults(manager.searchElections(searchFilter, searchBox1.getText()));
+    }
+
+    public void showElectionResults(LinkedList<Election> list){
+        electionTableView.getItems().clear();
+        if(list == null || list.isEmpty())
+            return;
+        ObservableList<Election> result = FXCollections.observableArrayList();
+        result.addAll(list);
+        electionTableView.setItems(result);
+    }
+
+    public void searchPoliticians(ActionEvent actionEvent) {
+        updateSearchFilter(actionEvent);
+        System.out.println(searchBox.getText());
+        showPoliticianResults(manager.searchPoliticians(searchFilter, searchBox.getText()));
+    }
+
+    public void showPoliticianResults(LinkedList<Politician> list){
+        System.out.println("Going to highlight now");
+        System.out.println(list);
+        politicianTableView.getItems().clear();
+        if(list == null || list.isEmpty())
+            return;
+        ObservableList<Politician> results = FXCollections.observableArrayList();
+        results.addAll(list);
+        politicianTableView.setItems(results);
+    }
+
+    public void sortByNameASC(ActionEvent actionEvent){
+        manager.sortPoliticians(Comparator.comparing(Politician::getName));
+        updatePoliticianView();
+    }
+
+    public void sortByNameDESC(ActionEvent actionEvent){
+        manager.sortPoliticians(Comparator.comparing(Politician::getName).reversed());
     }
 }

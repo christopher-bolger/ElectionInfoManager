@@ -5,7 +5,7 @@ import java.util.Objects;
 public class ElectionEntry{
     private final Politician politician;
     private final String affiliation;
-    private int votes, position = 0;
+    private int votes = 0, position = 0;
 
     public ElectionEntry(Politician politician) {
         this.politician = politician;
@@ -15,7 +15,7 @@ public class ElectionEntry{
     public ElectionEntry(Politician politician, int votes) {
         this.politician = politician;
         this.affiliation = politician.getAffiliation();
-        this.votes = Math.max(votes, 0);
+        this.votes = Math.abs(votes);
     }
 
     public String getName(){
@@ -39,8 +39,9 @@ public class ElectionEntry{
     }
 
     public void setVotes(int votes) {
-        if(votes < 0)
+        if(votes > 0) {
             this.votes = votes;
+        }
     }
 
     public void setPosition(int pos){

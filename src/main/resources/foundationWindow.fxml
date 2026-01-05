@@ -27,10 +27,10 @@
                         <MenuItem fx:id="editButton" mnemonicParsing="false" onAction="#editSelectedEntity" text="Edit" />
                   </items>
                 </Menu>
-                  <Menu mnemonicParsing="false" text="Search">
+                  <Menu mnemonicParsing="false" text="Sort">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="Delete" />
-                        <MenuItem mnemonicParsing="false" text="Edit" />
+                        <MenuItem mnemonicParsing="false" onAction="#sortByNameASC" text="Name ASC" />
+                        <MenuItem mnemonicParsing="false" onAction="#sortByNameDESC" text="Name DESC" />
                      </items>
                   </Menu>
               </menus>

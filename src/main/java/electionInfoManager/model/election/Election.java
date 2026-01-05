@@ -9,6 +9,7 @@ import java.util.Comparator;
 
 public class Election {
     public final static String[] ELECTION_TYPES = {"General", "Local", "European", "Presidential"};
+    public final static String[] FIELDS = {"Location", "Type", "Date", "Total Winners"};
     int totalWinners;
     LocalDate date;
     String electionLocation, electionType;

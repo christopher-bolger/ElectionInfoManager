@@ -1,6 +1,9 @@
 package electionInfoManager.controller;
+import electionInfoManager.model.election.Politician;
 import electionInfoManager.model.hashmap.CustomHashMap;
 import electionInfoManager.model.linkedlist.LinkedList;
+
+import java.util.Comparator;
 
 public abstract class Manager<E> {
     protected LinkedList<E> list;
@@ -51,5 +54,7 @@ public abstract class Manager<E> {
             map = toAdd;
     }
 
-    public abstract void sort();
+    public abstract void sort(Comparator<E> c);
+
+    public abstract LinkedList<E> search(String searchFilter, String text);
 }

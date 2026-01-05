@@ -10,6 +10,7 @@ import electionInfoManager.model.hashmap.HashMapNode;
 import electionInfoManager.model.linkedlist.LinkedList;
 
 import java.io.*;
+import java.util.Comparator;
 
 public class ElectionInfoManager{
     private final ElectionManager elections = new ElectionManager();
@@ -47,11 +48,11 @@ public class ElectionInfoManager{
 
     public boolean removeEveryInstance(Politician p){
         if(politicians.find(p) != null){
-            politicians.remove(p);
             for(Election e : elections.getList()){
                 if(e.getPolitician(new ElectionEntry(p)) != null)
                     e.remove(p);
             }
+            politicians.remove(p);
             return true;
         }
         return false;
@@ -144,5 +145,21 @@ public class ElectionInfoManager{
         setPoliticiansMap(loaded.getPoliticiansMap());
         setElections(loaded.getElections());
         setElectionsMap(loaded.getElectionsMap());
+    }
+
+    public LinkedList<Politician> searchPoliticians(String searchFilter, String text) {
+        return politicians.search(searchFilter, text);
+    }
+
+    public LinkedList<Election> searchElections(String searchFilter, String text) {
+        return elections.search(searchFilter, text);
+    }
+
+    public void sortPoliticians(Comparator<Politician> comparing) {
+        politicians.sort(comparing);
+    }
+
+    public void sortElections(Comparator<Election> comparing){
+        elections.sort(comparing);
     }
 }

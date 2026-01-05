@@ -75,9 +75,8 @@ public class addPoliticiansToElection extends Insertable {
     public void updateCandidates(){
         ObservableList<ElectionEntry> candidates = FXCollections.observableArrayList();
         for(ElectionEntry e : election.getCandidates())
-            if(e != null)
+            if(e != null && !candidates.contains(e))
                 candidates.add(e);
-        candidateView.getItems().clear();
         candidateView.setItems(candidates);
     }
 
@@ -119,11 +118,9 @@ public class addPoliticiansToElection extends Insertable {
     }
 
     public void updateCandidateVotes(ActionEvent actionEvent) {
-        ElectionEntry candidate = election.find(candidateView.getSelectionModel().getSelectedItem());
+        ElectionEntry candidate = candidateView.getSelectionModel().getSelectedItem();
         candidate.setVotes(Integer.parseInt(candidateVotes.getText()));
-        System.out.println(candidateView.getSelectionModel().getSelectedItem().getPolitician());
-        System.out.println(candidateVotes.getText());
-        System.out.println(candidateView.getSelectionModel().getSelectedItem().getVotes());
-        updateCandidates();
+        election.updateVotes(candidate.getPolitician(), Integer.parseInt(candidateVotes.getText()));
+        candidateView.refresh();
     }
 }
