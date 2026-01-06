@@ -12,28 +12,28 @@
               <head>
                 <content class="electionInfoManager.model.election.ElectionEntry">
                   <politician>
-                    <name>David Brown</name>
-                    <affiliation>Fianna Fail</affiliation>
-                    <county>Donegal</county>
-                    <photoURL>https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Harris_Mark_119th_Congress_%28crop2%29.jpg/250px-Harris_Mark_119th_Congress_%28crop2%29.jpg</photoURL>
-                    <DOB>1975-01-08</DOB>
+                    <name>Joe Byrne</name>
+                    <affiliation>Social Democrats</affiliation>
+                    <county>Louth</county>
+                    <photoURL>https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/John_McGuire_119th_Congress.jpg/250px-John_McGuire_119th_Congress.jpg</photoURL>
+                    <DOB>1994-07-19</DOB>
                   </politician>
-                  <affiliation>Fianna Gael</affiliation>
-                  <votes>120</votes>
+                  <affiliation>Social Democrats</affiliation>
+                  <votes>150</votes>
                   <position>1</position>
                 </content>
                 <next>
                   <content class="electionInfoManager.model.election.ElectionEntry">
                     <politician>
-                      <name>Joe Byrne</name>
-                      <affiliation>Social Democrats</affiliation>
-                      <county>Louth</county>
-                      <photoURL>https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/John_McGuire_119th_Congress.jpg/250px-John_McGuire_119th_Congress.jpg</photoURL>
-                      <DOB>1994-07-19</DOB>
+                      <name>David Brown</name>
+                      <affiliation>Fianna Fail</affiliation>
+                      <county>Donegal</county>
+                      <photoURL>https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Harris_Mark_119th_Congress_%28crop2%29.jpg/250px-Harris_Mark_119th_Congress_%28crop2%29.jpg</photoURL>
+                      <DOB>1975-01-08</DOB>
                     </politician>
-                    <affiliation>Social Democrats</affiliation>
-                    <votes>100</votes>
-                    <position>0</position>
+                    <affiliation>Fianna Gael</affiliation>
+                    <votes>120</votes>
+                    <position>2</position>
                   </content>
                 </next>
               </head>
@@ -53,19 +53,19 @@
                 <electionInfoManager.model.linkedlist.LinkedList>
                   <head>
                     <content class="electionInfoManager.model.hashmap.HashMapNode">
-                      <key class="electionInfoManager.model.election.Politician" reference="../../../../../../politicians/head/next/content/politician"/>
+                      <key class="electionInfoManager.model.election.Politician" reference="../../../../../../politicians/head/content/politician"/>
                       <value class="electionInfoManager.model.election.ElectionEntry">
-                        <politician reference="../../../../../../../politicians/head/next/content/politician"/>
+                        <politician reference="../../../../../../../politicians/head/content/politician"/>
                         <affiliation>Social Democrats</affiliation>
-                        <votes>100</votes>
+                        <votes>150</votes>
                         <position>0</position>
                       </value>
                     </content>
                     <next>
                       <content class="electionInfoManager.model.hashmap.HashMapNode">
-                        <key class="electionInfoManager.model.election.Politician" reference="../../../../../../../politicians/head/content/politician"/>
+                        <key class="electionInfoManager.model.election.Politician" reference="../../../../../../../politicians/head/next/content/politician"/>
                         <value class="electionInfoManager.model.election.ElectionEntry">
-                          <politician reference="../../../../../../../../politicians/head/content/politician"/>
+                          <politician reference="../../../../../../../../politicians/head/next/content/politician"/>
                           <affiliation>Fianna Gael</affiliation>
                           <votes>120</votes>
                           <position>0</position>
@@ -208,15 +208,24 @@
     <politicians>
       <list>
         <head>
-          <content class="electionInfoManager.model.election.Politician" reference="../../../../elections/list/head/content/politicians/head/content/politician"/>
+          <content class="electionInfoManager.model.election.Politician" reference="../../../../elections/list/head/content/politicians/head/next/content/politician"/>
           <next>
-            <content class="electionInfoManager.model.election.Politician" reference="../../../../../elections/list/head/content/politicians/head/next/content/politician"/>
+            <content class="electionInfoManager.model.election.Politician" reference="../../../../../elections/list/head/content/politicians/head/content/politician"/>
+            <next>
+              <content class="electionInfoManager.model.election.Politician">
+                <name>Philip Doyle</name>
+                <affiliation>Labour Party</affiliation>
+                <county>Limerick</county>
+                <photoURL>https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Rep._Joe_Courtney_Portrait_2024.jpg/250px-Rep._Joe_Courtney_Portrait_2024.jpg</photoURL>
+                <DOB>1997-01-22</DOB>
+              </content>
+            </next>
           </next>
         </head>
-        <tail reference="../head/next"/>
+        <tail reference="../head/next/next"/>
       </list>
       <map>
-        <size>2</size>
+        <size>3</size>
         <list>
           <electionInfoManager.model.linkedlist.LinkedList>
             <head/>
@@ -230,12 +239,12 @@
             <head>
               <content class="electionInfoManager.model.hashmap.HashMapNode">
                 <key class="int">68746872</key>
-                <value class="electionInfoManager.model.election.Politician" reference="../../../../../../../elections/list/head/content/politicians/head/next/content/politician"/>
+                <value class="electionInfoManager.model.election.Politician" reference="../../../../../../../elections/list/head/content/politicians/head/content/politician"/>
               </content>
               <next>
                 <content class="electionInfoManager.model.hashmap.HashMapNode">
                   <key class="int">-995430342</key>
-                  <value class="electionInfoManager.model.election.Politician" reference="../../../../../../../../elections/list/head/content/politicians/head/content/politician"/>
+                  <value class="electionInfoManager.model.election.Politician" reference="../../../../../../../../elections/list/head/content/politicians/head/next/content/politician"/>
                 </content>
               </next>
             </head>
@@ -250,7 +259,12 @@
             <tail reference="../head"/>
           </electionInfoManager.model.linkedlist.LinkedList>
           <electionInfoManager.model.linkedlist.LinkedList>
-            <head/>
+            <head>
+              <content class="electionInfoManager.model.hashmap.HashMapNode">
+                <key class="int">-417726595</key>
+                <value class="electionInfoManager.model.election.Politician" reference="../../../../../../list/head/next/next/content"/>
+              </content>
+            </head>
             <tail reference="../head"/>
           </electionInfoManager.model.linkedlist.LinkedList>
           <electionInfoManager.model.linkedlist.LinkedList>

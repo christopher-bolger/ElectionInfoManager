@@ -1,6 +1,7 @@
 package electionInfoManager.view;
 
 import electionInfoManager.model.election.Election;
+import electionInfoManager.model.election.ElectionEntry;
 import electionInfoManager.model.election.Politician;
 import electionInfoManager.model.javafx.Insertable;
 import electionInfoManager.model.linkedlist.LinkedList;
@@ -61,6 +62,7 @@ public class politicianView extends Insertable {
         electionLocation.setCellValueFactory(new PropertyValueFactory<>("electionLocation"));
         electionDate.setCellValueFactory(new PropertyValueFactory<>("date"));
         electionTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
+        updateElectionTable();
     }
 
     @Override
@@ -84,12 +86,22 @@ public class politicianView extends Insertable {
     public void setElections(LinkedList<Election> e){
         if(e != null && !e.isEmpty())
             elections = e;
-        updateElectionTable();
+    }
+
+
+    public LinkedList<Election> getElectionsWithPolitician(){
+        LinkedList<Election> electionList = new LinkedList<>();
+        for(Election e : elections) {
+            if (e.containsPolitician(politician))
+                electionList.add(e);
+            System.out.println(e);
+        }
+        return electionList;
     }
 
     public void updateElectionTable(){
         ObservableList<Election> result = FXCollections.observableArrayList();
-        result.addAll(elections);
+        result.addAll(getElectionsWithPolitician());
         electionTable.setItems(result);
     }
 
@@ -101,8 +113,10 @@ public class politicianView extends Insertable {
         FXMLLoader insertLoader = new FXMLLoader(getClass().getResource(path));
         Node insertNode = insertLoader.load();
         Insertable insert =  insertLoader.getController();
-        if(insert instanceof electionView)
+        if(insert instanceof electionView) {
             ((electionView) insert).setList(politicians);
+            ((electionView) insert).setElections(elections);
+        }
 
         FXMLLoader skeletonLoader = new FXMLLoader(getClass().getResource("/popoutSkeletonViews.fxml"));
         Parent skeletonRoot = skeletonLoader.load();

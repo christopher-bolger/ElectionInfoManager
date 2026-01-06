@@ -29,6 +29,7 @@ public class electionView extends Insertable {
     public ListView<String> electionDetailsListView;
     public LinkedList<Politician> politicians;
     public Election election;
+    public LinkedList<Election> elections;
     public TableView<ElectionEntry> winnersView;
     public TableColumn<ElectionEntry, String> nameColumn;
     public TableColumn<ElectionEntry, String> affiliationColumn;
@@ -111,11 +112,14 @@ public class electionView extends Insertable {
         String path = "/politicianView.fxml";
         FXMLLoader insertLoader = new FXMLLoader(getClass().getResource(path));
         Node insertNode = insertLoader.load();
-        Insertable insert =  insertLoader.getController();
+        politicianView insert =  insertLoader.getController();
 
         FXMLLoader skeletonLoader = new FXMLLoader(getClass().getResource("/popoutSkeletonViews.fxml"));
         Parent skeletonRoot = skeletonLoader.load();
         PopoutMenu skeletonController = skeletonLoader.getController();
+
+        insert.setPoliticians(politicians);
+        insert.setElections(elections);
 
         skeletonController.initialize(insert); // Pass controller here
         insert.edit(winnersView.getSelectionModel().getSelectedItem().getPolitician());
@@ -124,5 +128,10 @@ public class electionView extends Insertable {
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setScene(new Scene(skeletonRoot));
         stage.showAndWait();
+    }
+
+    public void setElections(LinkedList<Election> elections) {
+        if(elections != null && !elections.isEmpty())
+            this.elections = elections;
     }
 }

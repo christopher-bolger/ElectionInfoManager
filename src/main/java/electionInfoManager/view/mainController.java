@@ -129,8 +129,10 @@ public class mainController{
         FXMLLoader insertLoader = new FXMLLoader(getClass().getResource(path));
         Node insertNode = insertLoader.load();
         Insertable insert =  insertLoader.getController();
-        if(insert instanceof electionView)
+        if(insert instanceof electionView) {
             ((electionView) insert).setList(manager.getPoliticians());
+            ((electionView) insert).setElections(manager.getElections());
+        }
         if(insert instanceof politicianView) {
             ((politicianView) insert).setElections(manager.getElections());
             ((politicianView) insert).setPoliticians(manager.getPoliticians());

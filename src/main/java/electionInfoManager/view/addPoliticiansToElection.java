@@ -159,11 +159,13 @@ public class addPoliticiansToElection extends Insertable {
     }
 
     public void updateLists(){
+        updateCandidates();
         ObservableList<Politician> politicians = FXCollections.observableArrayList();
         politicians.addAll(list);
+        for(ElectionEntry e : candidateView.getItems())
+            politicians.removeAll(e.getPolitician());
         politicianView.getItems().clear();
         politicianView.setItems(politicians);
-        updateCandidates();
     }
 
     public void updateCandidates(){
@@ -192,8 +194,11 @@ public class addPoliticiansToElection extends Insertable {
     }
 
     public void addSelected(ActionEvent actionEvent) {
+        if(additionSelection == null)
+            return;
         election.add(additionSelection, Integer.parseInt(votesField.getText()));
-        updateCandidates();
+        additionSelection = null;
+        updateLists();
     }
 
     public void updateAdditionSelection(MouseEvent mouseEvent) {
@@ -207,8 +212,8 @@ public class addPoliticiansToElection extends Insertable {
     }
 
     public void removeSelected(ActionEvent actionEvent) {
-        System.out.println(election.remove(removalSelection.getPolitician()));
-        updateCandidates();
+        election.remove(removalSelection.getPolitician());
+        updateLists();
     }
 
     public void updateCandidateVotes(ActionEvent actionEvent) {

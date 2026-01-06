@@ -143,8 +143,7 @@ public class Election {
     }
 
     public boolean remove(Politician politician){
-        return politicians.remove(candidates.get(politician)) &&
-         candidates.remove(politician);
+        return politicians.remove(candidates.get(politician)) && candidates.remove(politician);
     }
 
     public String getAffiliation(Politician politician){
@@ -162,6 +161,22 @@ public class Election {
     public void setDate(LocalDate date){
         if(date != null)
             this.date = date;
+    }
+
+    public Politician getPolitician(Politician p){
+        if(politicians != null && !politicians.isEmpty())
+            for(ElectionEntry e : politicians){
+                if(e.getPolitician() == p)
+                    return e.getPolitician();
+            }
+        return null;
+    }
+
+    public boolean containsPolitician(Politician p){
+        if(p != null){
+            return candidates.get(p) != null;
+        }
+        return false;
     }
 
     public String getElectionType(){
