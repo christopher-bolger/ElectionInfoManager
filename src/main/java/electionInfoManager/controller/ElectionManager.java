@@ -105,6 +105,13 @@ public class ElectionManager extends Manager<Election> {
                 }
             }
         }
+        if(!result.isEmpty())
+            switch(searchFilter){
+                case "Location" -> Sort.mergeSort(result, Comparator.comparing(Election::getElectionLocation));
+                case "Type" -> Sort.mergeSort(result, Comparator.comparing(Election::getElectionType));
+                case "Date" -> Sort.mergeSort(result, Comparator.comparing(Election::getDate));
+                default -> Sort.mergeSort(result, Comparator.comparing(Election::getWinners));
+            }
         return result;
     }
 

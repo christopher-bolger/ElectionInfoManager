@@ -25,39 +25,87 @@
                 <next>
                   <content class="electionInfoManager.model.election.ElectionEntry">
                     <politician>
-                      <name>David Brown</name>
-                      <affiliation>Fianna Fail</affiliation>
-                      <county>Donegal</county>
-                      <photoURL>https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Harris_Mark_119th_Congress_%28crop2%29.jpg/250px-Harris_Mark_119th_Congress_%28crop2%29.jpg</photoURL>
-                      <DOB>1975-01-08</DOB>
+                      <name>John Healy</name>
+                      <affiliation>Sinn Fein</affiliation>
+                      <county>Laois</county>
+                      <photoURL>https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/John_Healey%2C_United_Kingdom_Secretary_of_State_for_Defense_during_the_NATO_75th_Anniversary_Summit_in_Washington%2C_D.C._on_July_10%2C_2024_%28cropped%29.jpg/250px-John_Healey%2C_United_Kingdom_Secretary_of_State_for_Defense_during_the_NATO_75th_Anniversary_Summit_in_Washington%2C_D.C._on_July_10%2C_2024_%28cropped%29.jpg</photoURL>
+                      <DOB>1942-05-13</DOB>
                     </politician>
                     <affiliation>Fianna Gael</affiliation>
-                    <votes>120</votes>
+                    <votes>145</votes>
                     <position>2</position>
                   </content>
+                  <next>
+                    <content class="electionInfoManager.model.election.ElectionEntry">
+                      <politician>
+                        <name>Jan van Aken</name>
+                        <affiliation>Fianna Fail</affiliation>
+                        <county>Longford</county>
+                        <photoURL>https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Hart_aber_fair_2025-03-10-1266.jpg/250px-Hart_aber_fair_2025-03-10-1266.jpg</photoURL>
+                        <DOB>1992-01-14</DOB>
+                      </politician>
+                      <affiliation>Fianna Fail</affiliation>
+                      <votes>134</votes>
+                      <position>3</position>
+                    </content>
+                    <next>
+                      <content class="electionInfoManager.model.election.ElectionEntry">
+                        <politician>
+                          <name>David Brown</name>
+                          <affiliation>Fianna Fail</affiliation>
+                          <county>Donegal</county>
+                          <photoURL>https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Harris_Mark_119th_Congress_%28crop2%29.jpg/250px-Harris_Mark_119th_Congress_%28crop2%29.jpg</photoURL>
+                          <DOB>1975-01-08</DOB>
+                        </politician>
+                        <affiliation>Fianna Gael</affiliation>
+                        <votes>120</votes>
+                        <position>5</position>
+                      </content>
+                      <next>
+                        <content class="electionInfoManager.model.election.ElectionEntry">
+                          <politician>
+                            <name>Donald Tusk</name>
+                            <affiliation>Social Democrats</affiliation>
+                            <county>Kerry</county>
+                            <photoURL>https://upload.wikimedia.org/wikipedia/commons/2/2a/Premier_Donald_Tusk_KPRM.jpg</photoURL>
+                            <DOB>1991-02-12</DOB>
+                          </politician>
+                          <affiliation>Social Democrats</affiliation>
+                          <votes>120</votes>
+                          <position>4</position>
+                        </content>
+                        <next>
+                          <content class="electionInfoManager.model.election.ElectionEntry">
+                            <politician>
+                              <name>Peter Welch</name>
+                              <affiliation>Independent</affiliation>
+                              <county>Clare</county>
+                              <photoURL>https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/2023_Congressional_Newsmaker_Series-_A_Conversation_with_Senator_Peter_Welch_%28D-VT%29_-_53625328.jpg/1024px-2023_Congressional_Newsmaker_Series-_A_Conversation_with_Senator_Peter_Welch_%28D-VT%29_-_53625328.jpg</photoURL>
+                              <DOB>1985-07-10</DOB>
+                            </politician>
+                            <affiliation>Independent</affiliation>
+                            <votes>119</votes>
+                            <position>6</position>
+                          </content>
+                        </next>
+                      </next>
+                    </next>
+                  </next>
                 </next>
               </head>
-              <tail reference="../head/next"/>
+              <tail reference="../head/next/next/next/next/next"/>
             </politicians>
             <candidates>
-              <size>2</size>
+              <size>6</size>
               <list>
-                <electionInfoManager.model.linkedlist.LinkedList>
-                  <head/>
-                  <tail reference="../head"/>
-                </electionInfoManager.model.linkedlist.LinkedList>
-                <electionInfoManager.model.linkedlist.LinkedList>
-                  <head/>
-                  <tail reference="../head"/>
-                </electionInfoManager.model.linkedlist.LinkedList>
                 <electionInfoManager.model.linkedlist.LinkedList>
                   <head>
                     <content class="electionInfoManager.model.hashmap.HashMapNode">
-                      <key class="electionInfoManager.model.election.Politician" reference="../../../../../../politicians/head/content/politician"/>
+                      <key class="electionInfoManager.model.election.Politician" reference="../../../../../../politicians/head/next/next/content/politician"/>
                       <value class="electionInfoManager.model.election.ElectionEntry">
-                        <politician reference="../../../../../../../politicians/head/content/politician"/>
-                        <affiliation>Social Democrats</affiliation>
-                        <votes>150</votes>
+                        <politician reference="../../../../../../../politicians/head/next/next/content/politician"/>
+                        <affiliation>Fianna Fail</affiliation>
+                        <votes>134</votes>
                         <position>0</position>
                       </value>
                     </content>
@@ -67,7 +115,7 @@
                         <value class="electionInfoManager.model.election.ElectionEntry">
                           <politician reference="../../../../../../../../politicians/head/next/content/politician"/>
                           <affiliation>Fianna Gael</affiliation>
-                          <votes>120</votes>
+                          <votes>145</votes>
                           <position>0</position>
                         </value>
                       </content>
@@ -96,7 +144,80 @@
                   <tail reference="../head"/>
                 </electionInfoManager.model.linkedlist.LinkedList>
                 <electionInfoManager.model.linkedlist.LinkedList>
+                  <head>
+                    <content class="electionInfoManager.model.hashmap.HashMapNode">
+                      <key class="electionInfoManager.model.election.Politician" reference="../../../../../../politicians/head/next/next/next/next/next/content/politician"/>
+                      <value class="electionInfoManager.model.election.ElectionEntry">
+                        <politician reference="../../../../../../../politicians/head/next/next/next/next/next/content/politician"/>
+                        <affiliation>Independent</affiliation>
+                        <votes>119</votes>
+                        <position>0</position>
+                      </value>
+                    </content>
+                    <next>
+                      <content class="electionInfoManager.model.hashmap.HashMapNode">
+                        <key class="electionInfoManager.model.election.Politician" reference="../../../../../../../politicians/head/next/next/next/content/politician"/>
+                        <value class="electionInfoManager.model.election.ElectionEntry">
+                          <politician reference="../../../../../../../../politicians/head/next/next/next/content/politician"/>
+                          <affiliation>Fianna Gael</affiliation>
+                          <votes>120</votes>
+                          <position>0</position>
+                        </value>
+                      </content>
+                    </next>
+                  </head>
+                  <tail reference="../head/next"/>
+                </electionInfoManager.model.linkedlist.LinkedList>
+                <electionInfoManager.model.linkedlist.LinkedList>
                   <head/>
+                  <tail reference="../head"/>
+                </electionInfoManager.model.linkedlist.LinkedList>
+                <electionInfoManager.model.linkedlist.LinkedList>
+                  <head>
+                    <content class="electionInfoManager.model.hashmap.HashMapNode">
+                      <key class="electionInfoManager.model.election.Politician" reference="../../../../../../politicians/head/content/politician"/>
+                      <value class="electionInfoManager.model.election.ElectionEntry">
+                        <politician reference="../../../../../../../politicians/head/content/politician"/>
+                        <affiliation>Social Democrats</affiliation>
+                        <votes>150</votes>
+                        <position>0</position>
+                      </value>
+                    </content>
+                  </head>
+                  <tail reference="../head"/>
+                </electionInfoManager.model.linkedlist.LinkedList>
+                <electionInfoManager.model.linkedlist.LinkedList>
+                  <head/>
+                  <tail reference="../head"/>
+                </electionInfoManager.model.linkedlist.LinkedList>
+                <electionInfoManager.model.linkedlist.LinkedList>
+                  <head/>
+                  <tail reference="../head"/>
+                </electionInfoManager.model.linkedlist.LinkedList>
+                <electionInfoManager.model.linkedlist.LinkedList>
+                  <head/>
+                  <tail reference="../head"/>
+                </electionInfoManager.model.linkedlist.LinkedList>
+                <electionInfoManager.model.linkedlist.LinkedList>
+                  <head/>
+                  <tail reference="../head"/>
+                </electionInfoManager.model.linkedlist.LinkedList>
+                <electionInfoManager.model.linkedlist.LinkedList>
+                  <head/>
+                  <tail reference="../head"/>
+                </electionInfoManager.model.linkedlist.LinkedList>
+                <electionInfoManager.model.linkedlist.LinkedList>
+                  <head>
+                    <content class="electionInfoManager.model.hashmap.HashMapNode">
+                      <key class="electionInfoManager.model.election.Politician" reference="../../../../../../politicians/head/next/next/next/next/content/politician"/>
+                      <value class="electionInfoManager.model.election.ElectionEntry">
+                        <politician reference="../../../../../../../politicians/head/next/next/next/next/content/politician"/>
+                        <affiliation>Social Democrats</affiliation>
+                        <votes>120</votes>
+                        <position>0</position>
+                      </value>
+                    </content>
+                  </head>
                   <tail reference="../head"/>
                 </electionInfoManager.model.linkedlist.LinkedList>
                 <electionInfoManager.model.linkedlist.LinkedList>
@@ -106,14 +227,821 @@
               </list>
             </candidates>
           </content>
+          <next>
+            <content class="electionInfoManager.model.election.Election">
+              <totalWinners>8</totalWinners>
+              <date>1987-02-11</date>
+              <electionLocation>Wexford</electionLocation>
+              <electionType>Local</electionType>
+              <politicians>
+                <head>
+                  <content class="electionInfoManager.model.election.ElectionEntry">
+                    <politician reference="../../../../../../content/politicians/head/next/content/politician"/>
+                    <affiliation>Sinn Fein</affiliation>
+                    <votes>178</votes>
+                    <position>1</position>
+                  </content>
+                  <next>
+                    <content class="electionInfoManager.model.election.ElectionEntry">
+                      <politician>
+                        <name>Philip Doyle</name>
+                        <affiliation>Labour Party</affiliation>
+                        <county>Limerick</county>
+                        <photoURL>https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Rep._Joe_Courtney_Portrait_2024.jpg/250px-Rep._Joe_Courtney_Portrait_2024.jpg</photoURL>
+                        <DOB>1997-01-22</DOB>
+                      </politician>
+                      <affiliation>Labour Party</affiliation>
+                      <votes>163</votes>
+                      <position>2</position>
+                    </content>
+                    <next>
+                      <content class="electionInfoManager.model.election.ElectionEntry">
+                        <politician>
+                          <name>David Kemp</name>
+                          <affiliation>Social Democrats</affiliation>
+                          <county>Wexford</county>
+                          <photoURL>https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/David_Kemp_at_Fraser_Symposium_%281%29_%28cropped%29.jpg/250px-David_Kemp_at_Fraser_Symposium_%281%29_%28cropped%29.jpg</photoURL>
+                          <DOB>1984-10-10</DOB>
+                        </politician>
+                        <affiliation>Social Democrats</affiliation>
+                        <votes>154</votes>
+                        <position>3</position>
+                      </content>
+                      <next>
+                        <content class="electionInfoManager.model.election.ElectionEntry">
+                          <politician reference="../../../../../../../../../content/politicians/head/next/next/next/next/content/politician"/>
+                          <affiliation>Social Democrats</affiliation>
+                          <votes>145</votes>
+                          <position>4</position>
+                        </content>
+                        <next>
+                          <content class="electionInfoManager.model.election.ElectionEntry">
+                            <politician>
+                              <name>Sadiq Khan</name>
+                              <affiliation>Fianna Gael</affiliation>
+                              <county>Kilkenny</county>
+                              <photoURL>https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Sadiq_Khan%2C_September_2009_cropped.jpg/250px-Sadiq_Khan%2C_September_2009_cropped.jpg</photoURL>
+                              <DOB>1986-01-14</DOB>
+                            </politician>
+                            <affiliation>Fianna Gael</affiliation>
+                            <votes>135</votes>
+                            <position>5</position>
+                          </content>
+                          <next>
+                            <content class="electionInfoManager.model.election.ElectionEntry">
+                              <politician reference="../../../../../../../../../../../content/politicians/head/next/next/next/next/next/content/politician"/>
+                              <affiliation>Independent</affiliation>
+                              <votes>112</votes>
+                              <position>6</position>
+                            </content>
+                            <next>
+                              <content class="electionInfoManager.model.election.ElectionEntry">
+                                <politician reference="../../../../../../../../../../../../content/politicians/head/next/next/content/politician"/>
+                                <affiliation>Fianna Fail</affiliation>
+                                <votes>109</votes>
+                                <position>7</position>
+                              </content>
+                              <next>
+                                <content class="electionInfoManager.model.election.ElectionEntry">
+                                  <politician>
+                                    <name>Alec Richardson</name>
+                                    <affiliation>Labour Party</affiliation>
+                                    <county>Galway</county>
+                                    <photoURL>https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Charles_Michel_%28politician%29.jpg/700px-Charles_Michel_%28politician%29.jpg</photoURL>
+                                    <DOB>2021-05-04</DOB>
+                                  </politician>
+                                  <affiliation>Labour Party</affiliation>
+                                  <votes>106</votes>
+                                  <position>8</position>
+                                </content>
+                                <next>
+                                  <content class="electionInfoManager.model.election.ElectionEntry">
+                                    <politician reference="../../../../../../../../../../../../../../content/politicians/head/content/politician"/>
+                                    <affiliation>Social Democrats</affiliation>
+                                    <votes>102</votes>
+                                    <position>9</position>
+                                  </content>
+                                  <next>
+                                    <content class="electionInfoManager.model.election.ElectionEntry">
+                                      <politician>
+                                        <name>Oswald Mosely</name>
+                                        <affiliation>Social Democrats</affiliation>
+                                        <county>Tyrone</county>
+                                        <photoURL>https://upload.wikimedia.org/wikipedia/commons/c/c9/Oswald_mosley_MP.jpg</photoURL>
+                                        <DOB>1981-01-13</DOB>
+                                      </politician>
+                                      <affiliation>Social Democrats</affiliation>
+                                      <votes>100</votes>
+                                      <position>10</position>
+                                    </content>
+                                    <next>
+                                      <content class="electionInfoManager.model.election.ElectionEntry">
+                                        <politician>
+                                          <name>Bill Hagerty</name>
+                                          <affiliation>Independent Ireland</affiliation>
+                                          <county>Fermanagh</county>
+                                          <photoURL>https://upload.wikimedia.org/wikipedia/commons/1/19/Hagerty_Official_Senate_Photo.jpg</photoURL>
+                                          <DOB>1985-01-09</DOB>
+                                        </politician>
+                                        <affiliation>Independent Ireland</affiliation>
+                                        <votes>90</votes>
+                                        <position>11</position>
+                                      </content>
+                                      <next>
+                                        <content class="electionInfoManager.model.election.ElectionEntry">
+                                          <politician reference="../../../../../../../../../../../../../../../../../content/politicians/head/next/next/next/content/politician"/>
+                                          <affiliation>Fianna Fail</affiliation>
+                                          <votes>60</votes>
+                                          <position>12</position>
+                                        </content>
+                                      </next>
+                                    </next>
+                                  </next>
+                                </next>
+                              </next>
+                            </next>
+                          </next>
+                        </next>
+                      </next>
+                    </next>
+                  </next>
+                </head>
+                <tail reference="../head/next/next/next/next/next/next/next/next/next/next/next"/>
+              </politicians>
+              <candidates>
+                <size>12</size>
+                <list>
+                  <electionInfoManager.model.linkedlist.LinkedList>
+                    <head/>
+                    <tail reference="../head"/>
+                  </electionInfoManager.model.linkedlist.LinkedList>
+                  <electionInfoManager.model.linkedlist.LinkedList>
+                    <head>
+                      <content class="electionInfoManager.model.hashmap.HashMapNode">
+                        <key class="electionInfoManager.model.election.Politician" reference="../../../../../../politicians/head/next/next/next/next/content/politician"/>
+                        <value class="electionInfoManager.model.election.ElectionEntry">
+                          <politician reference="../../../../../../../politicians/head/next/next/next/next/content/politician"/>
+                          <affiliation>Fianna Gael</affiliation>
+                          <votes>135</votes>
+                          <position>0</position>
+                        </value>
+                      </content>
+                    </head>
+                    <tail reference="../head"/>
+                  </electionInfoManager.model.linkedlist.LinkedList>
+                  <electionInfoManager.model.linkedlist.LinkedList>
+                    <head/>
+                    <tail reference="../head"/>
+                  </electionInfoManager.model.linkedlist.LinkedList>
+                  <electionInfoManager.model.linkedlist.LinkedList>
+                    <head>
+                      <content class="electionInfoManager.model.hashmap.HashMapNode">
+                        <key class="electionInfoManager.model.election.Politician" reference="../../../../../../politicians/head/next/next/next/next/next/next/next/content/politician"/>
+                        <value class="electionInfoManager.model.election.ElectionEntry">
+                          <politician reference="../../../../../../../politicians/head/next/next/next/next/next/next/next/content/politician"/>
+                          <affiliation>Labour Party</affiliation>
+                          <votes>106</votes>
+                          <position>0</position>
+                        </value>
+                      </content>
+                    </head>
+                    <tail reference="../head"/>
+                  </electionInfoManager.model.linkedlist.LinkedList>
+                  <electionInfoManager.model.linkedlist.LinkedList>
+                    <head>
+                      <content class="electionInfoManager.model.hashmap.HashMapNode">
+                        <key class="electionInfoManager.model.election.Politician" reference="../../../../../../../../content/politicians/head/next/next/next/next/next/content/politician"/>
+                        <value class="electionInfoManager.model.election.ElectionEntry">
+                          <politician reference="../../../../../../../../../content/politicians/head/next/next/next/next/next/content/politician"/>
+                          <affiliation>Independent</affiliation>
+                          <votes>112</votes>
+                          <position>0</position>
+                        </value>
+                      </content>
+                    </head>
+                    <tail reference="../head"/>
+                  </electionInfoManager.model.linkedlist.LinkedList>
+                  <electionInfoManager.model.linkedlist.LinkedList>
+                    <head/>
+                    <tail reference="../head"/>
+                  </electionInfoManager.model.linkedlist.LinkedList>
+                  <electionInfoManager.model.linkedlist.LinkedList>
+                    <head>
+                      <content class="electionInfoManager.model.hashmap.HashMapNode">
+                        <key class="electionInfoManager.model.election.Politician" reference="../../../../../../politicians/head/next/next/next/next/next/next/next/next/next/next/content/politician"/>
+                        <value class="electionInfoManager.model.election.ElectionEntry">
+                          <politician reference="../../../../../../../politicians/head/next/next/next/next/next/next/next/next/next/next/content/politician"/>
+                          <affiliation>Independent Ireland</affiliation>
+                          <votes>90</votes>
+                          <position>0</position>
+                        </value>
+                      </content>
+                    </head>
+                    <tail reference="../head"/>
+                  </electionInfoManager.model.linkedlist.LinkedList>
+                  <electionInfoManager.model.linkedlist.LinkedList>
+                    <head>
+                      <content class="electionInfoManager.model.hashmap.HashMapNode">
+                        <key class="electionInfoManager.model.election.Politician" reference="../../../../../../politicians/head/next/next/content/politician"/>
+                        <value class="electionInfoManager.model.election.ElectionEntry">
+                          <politician reference="../../../../../../../politicians/head/next/next/content/politician"/>
+                          <affiliation>Social Democrats</affiliation>
+                          <votes>154</votes>
+                          <position>0</position>
+                        </value>
+                      </content>
+                      <next>
+                        <content class="electionInfoManager.model.hashmap.HashMapNode">
+                          <key class="electionInfoManager.model.election.Politician" reference="../../../../../../../../../content/politicians/head/next/content/politician"/>
+                          <value class="electionInfoManager.model.election.ElectionEntry">
+                            <politician reference="../../../../../../../../../../content/politicians/head/next/content/politician"/>
+                            <affiliation>Sinn Fein</affiliation>
+                            <votes>178</votes>
+                            <position>0</position>
+                          </value>
+                        </content>
+                      </next>
+                    </head>
+                    <tail reference="../head/next"/>
+                  </electionInfoManager.model.linkedlist.LinkedList>
+                  <electionInfoManager.model.linkedlist.LinkedList>
+                    <head/>
+                    <tail reference="../head"/>
+                  </electionInfoManager.model.linkedlist.LinkedList>
+                  <electionInfoManager.model.linkedlist.LinkedList>
+                    <head/>
+                    <tail reference="../head"/>
+                  </electionInfoManager.model.linkedlist.LinkedList>
+                  <electionInfoManager.model.linkedlist.LinkedList>
+                    <head/>
+                    <tail reference="../head"/>
+                  </electionInfoManager.model.linkedlist.LinkedList>
+                  <electionInfoManager.model.linkedlist.LinkedList>
+                    <head/>
+                    <tail reference="../head"/>
+                  </electionInfoManager.model.linkedlist.LinkedList>
+                  <electionInfoManager.model.linkedlist.LinkedList>
+                    <head/>
+                    <tail reference="../head"/>
+                  </electionInfoManager.model.linkedlist.LinkedList>
+                  <electionInfoManager.model.linkedlist.LinkedList>
+                    <head/>
+                    <tail reference="../head"/>
+                  </electionInfoManager.model.linkedlist.LinkedList>
+                  <electionInfoManager.model.linkedlist.LinkedList>
+                    <head>
+                      <content class="electionInfoManager.model.hashmap.HashMapNode">
+                        <key class="electionInfoManager.model.election.Politician" reference="../../../../../../politicians/head/next/next/next/next/next/next/next/next/next/content/politician"/>
+                        <value class="electionInfoManager.model.election.ElectionEntry">
+                          <politician reference="../../../../../../../politicians/head/next/next/next/next/next/next/next/next/next/content/politician"/>
+                          <affiliation>Social Democrats</affiliation>
+                          <votes>100</votes>
+                          <position>0</position>
+                        </value>
+                      </content>
+                    </head>
+                    <tail reference="../head"/>
+                  </electionInfoManager.model.linkedlist.LinkedList>
+                  <electionInfoManager.model.linkedlist.LinkedList>
+                    <head/>
+                    <tail reference="../head"/>
+                  </electionInfoManager.model.linkedlist.LinkedList>
+                  <electionInfoManager.model.linkedlist.LinkedList>
+                    <head/>
+                    <tail reference="../head"/>
+                  </electionInfoManager.model.linkedlist.LinkedList>
+                  <electionInfoManager.model.linkedlist.LinkedList>
+                    <head>
+                      <content class="electionInfoManager.model.hashmap.HashMapNode">
+                        <key class="electionInfoManager.model.election.Politician" reference="../../../../../../../../content/politicians/head/next/next/next/content/politician"/>
+                        <value class="electionInfoManager.model.election.ElectionEntry">
+                          <politician reference="../../../../../../../../../content/politicians/head/next/next/next/content/politician"/>
+                          <affiliation>Fianna Fail</affiliation>
+                          <votes>60</votes>
+                          <position>0</position>
+                        </value>
+                      </content>
+                    </head>
+                    <tail reference="../head"/>
+                  </electionInfoManager.model.linkedlist.LinkedList>
+                  <electionInfoManager.model.linkedlist.LinkedList>
+                    <head/>
+                    <tail reference="../head"/>
+                  </electionInfoManager.model.linkedlist.LinkedList>
+                  <electionInfoManager.model.linkedlist.LinkedList>
+                    <head>
+                      <content class="electionInfoManager.model.hashmap.HashMapNode">
+                        <key class="electionInfoManager.model.election.Politician" reference="../../../../../../../../content/politicians/head/next/next/content/politician"/>
+                        <value class="electionInfoManager.model.election.ElectionEntry">
+                          <politician reference="../../../../../../../../../content/politicians/head/next/next/content/politician"/>
+                          <affiliation>Fianna Fail</affiliation>
+                          <votes>109</votes>
+                          <position>0</position>
+                        </value>
+                      </content>
+                    </head>
+                    <tail reference="../head"/>
+                  </electionInfoManager.model.linkedlist.LinkedList>
+                  <electionInfoManager.model.linkedlist.LinkedList>
+                    <head>
+                      <content class="electionInfoManager.model.hashmap.HashMapNode">
+                        <key class="electionInfoManager.model.election.Politician" reference="../../../../../../politicians/head/next/content/politician"/>
+                        <value class="electionInfoManager.model.election.ElectionEntry">
+                          <politician reference="../../../../../../../politicians/head/next/content/politician"/>
+                          <affiliation>Labour Party</affiliation>
+                          <votes>163</votes>
+                          <position>0</position>
+                        </value>
+                      </content>
+                    </head>
+                    <tail reference="../head"/>
+                  </electionInfoManager.model.linkedlist.LinkedList>
+                  <electionInfoManager.model.linkedlist.LinkedList>
+                    <head/>
+                    <tail reference="../head"/>
+                  </electionInfoManager.model.linkedlist.LinkedList>
+                  <electionInfoManager.model.linkedlist.LinkedList>
+                    <head>
+                      <content class="electionInfoManager.model.hashmap.HashMapNode">
+                        <key class="electionInfoManager.model.election.Politician" reference="../../../../../../../../content/politicians/head/next/next/next/next/content/politician"/>
+                        <value class="electionInfoManager.model.election.ElectionEntry">
+                          <politician reference="../../../../../../../../../content/politicians/head/next/next/next/next/content/politician"/>
+                          <affiliation>Social Democrats</affiliation>
+                          <votes>145</votes>
+                          <position>0</position>
+                        </value>
+                      </content>
+                      <next>
+                        <content class="electionInfoManager.model.hashmap.HashMapNode">
+                          <key class="electionInfoManager.model.election.Politician" reference="../../../../../../../../../content/politicians/head/content/politician"/>
+                          <value class="electionInfoManager.model.election.ElectionEntry">
+                            <politician reference="../../../../../../../../../../content/politicians/head/content/politician"/>
+                            <affiliation>Social Democrats</affiliation>
+                            <votes>102</votes>
+                            <position>0</position>
+                          </value>
+                        </content>
+                      </next>
+                    </head>
+                    <tail reference="../head/next"/>
+                  </electionInfoManager.model.linkedlist.LinkedList>
+                  <electionInfoManager.model.linkedlist.LinkedList>
+                    <head/>
+                    <tail reference="../head"/>
+                  </electionInfoManager.model.linkedlist.LinkedList>
+                  <electionInfoManager.model.linkedlist.LinkedList>
+                    <head/>
+                    <tail reference="../head"/>
+                  </electionInfoManager.model.linkedlist.LinkedList>
+                </list>
+              </candidates>
+            </content>
+            <next>
+              <content class="electionInfoManager.model.election.Election">
+                <totalWinners>3</totalWinners>
+                <date>2006-01-17</date>
+                <electionLocation>Dublin</electionLocation>
+                <electionType>General</electionType>
+                <politicians>
+                  <head>
+                    <content class="electionInfoManager.model.election.ElectionEntry">
+                      <politician reference="../../../../../../content/politicians/head/next/next/next/next/content/politician"/>
+                      <affiliation>Fianna Gael</affiliation>
+                      <votes>165</votes>
+                      <position>1</position>
+                    </content>
+                    <next>
+                      <content class="electionInfoManager.model.election.ElectionEntry">
+                        <politician reference="../../../../../../../content/politicians/head/next/next/next/next/next/next/next/next/next/next/content/politician"/>
+                        <affiliation>Independent Ireland</affiliation>
+                        <votes>160</votes>
+                        <position>2</position>
+                      </content>
+                      <next>
+                        <content class="electionInfoManager.model.election.ElectionEntry">
+                          <politician reference="../../../../../../../../../content/politicians/head/next/content/politician"/>
+                          <affiliation>Fianna Gael</affiliation>
+                          <votes>130</votes>
+                          <position>3</position>
+                        </content>
+                        <next>
+                          <content class="electionInfoManager.model.election.ElectionEntry">
+                            <politician reference="../../../../../../../../../../content/politicians/head/next/next/content/politician"/>
+                            <affiliation>Fianna Fail</affiliation>
+                            <votes>120</votes>
+                            <position>4</position>
+                          </content>
+                          <next>
+                            <content class="electionInfoManager.model.election.ElectionEntry">
+                              <politician reference="../../../../../../../../../../../content/politicians/head/next/next/next/next/content/politician"/>
+                              <affiliation>Social Democrats</affiliation>
+                              <votes>111</votes>
+                              <position>5</position>
+                            </content>
+                            <next>
+                              <content class="electionInfoManager.model.election.ElectionEntry">
+                                <politician reference="../../../../../../../../../../../../content/politicians/head/next/next/next/content/politician"/>
+                                <affiliation>Fianna Fail</affiliation>
+                                <votes>110</votes>
+                                <position>6</position>
+                              </content>
+                              <next>
+                                <content class="electionInfoManager.model.election.ElectionEntry">
+                                  <politician reference="../../../../../../../../../../../../content/politicians/head/next/content/politician"/>
+                                  <affiliation>Labour Party</affiliation>
+                                  <votes>99</votes>
+                                  <position>7</position>
+                                </content>
+                              </next>
+                            </next>
+                          </next>
+                        </next>
+                      </next>
+                    </next>
+                  </head>
+                  <tail reference="../head/next/next/next/next/next/next"/>
+                </politicians>
+                <candidates>
+                  <size>7</size>
+                  <list>
+                    <electionInfoManager.model.linkedlist.LinkedList>
+                      <head>
+                        <content class="electionInfoManager.model.hashmap.HashMapNode">
+                          <key class="electionInfoManager.model.election.Politician" reference="../../../../../../../../../content/politicians/head/next/next/content/politician"/>
+                          <value class="electionInfoManager.model.election.ElectionEntry">
+                            <politician reference="../../../../../../../../../../content/politicians/head/next/next/content/politician"/>
+                            <affiliation>Fianna Fail</affiliation>
+                            <votes>120</votes>
+                            <position>0</position>
+                          </value>
+                        </content>
+                        <next>
+                          <content class="electionInfoManager.model.hashmap.HashMapNode">
+                            <key class="electionInfoManager.model.election.Politician" reference="../../../../../../../../../../content/politicians/head/next/content/politician"/>
+                            <value class="electionInfoManager.model.election.ElectionEntry">
+                              <politician reference="../../../../../../../../../../../content/politicians/head/next/content/politician"/>
+                              <affiliation>Fianna Gael</affiliation>
+                              <votes>130</votes>
+                              <position>0</position>
+                            </value>
+                          </content>
+                        </next>
+                      </head>
+                      <tail reference="../head/next"/>
+                    </electionInfoManager.model.linkedlist.LinkedList>
+                    <electionInfoManager.model.linkedlist.LinkedList>
+                      <head/>
+                      <tail reference="../head"/>
+                    </electionInfoManager.model.linkedlist.LinkedList>
+                    <electionInfoManager.model.linkedlist.LinkedList>
+                      <head>
+                        <content class="electionInfoManager.model.hashmap.HashMapNode">
+                          <key class="electionInfoManager.model.election.Politician" reference="../../../../../../../../content/politicians/head/next/next/next/next/next/next/next/next/next/next/content/politician"/>
+                          <value class="electionInfoManager.model.election.ElectionEntry">
+                            <politician reference="../../../../../../../../../content/politicians/head/next/next/next/next/next/next/next/next/next/next/content/politician"/>
+                            <affiliation>Independent Ireland</affiliation>
+                            <votes>160</votes>
+                            <position>0</position>
+                          </value>
+                        </content>
+                      </head>
+                      <tail reference="../head"/>
+                    </electionInfoManager.model.linkedlist.LinkedList>
+                    <electionInfoManager.model.linkedlist.LinkedList>
+                      <head>
+                        <content class="electionInfoManager.model.hashmap.HashMapNode">
+                          <key class="electionInfoManager.model.election.Politician" reference="../../../../../../../../content/politicians/head/next/content/politician"/>
+                          <value class="electionInfoManager.model.election.ElectionEntry">
+                            <politician reference="../../../../../../../../../content/politicians/head/next/content/politician"/>
+                            <affiliation>Labour Party</affiliation>
+                            <votes>99</votes>
+                            <position>0</position>
+                          </value>
+                        </content>
+                      </head>
+                      <tail reference="../head"/>
+                    </electionInfoManager.model.linkedlist.LinkedList>
+                    <electionInfoManager.model.linkedlist.LinkedList>
+                      <head/>
+                      <tail reference="../head"/>
+                    </electionInfoManager.model.linkedlist.LinkedList>
+                    <electionInfoManager.model.linkedlist.LinkedList>
+                      <head/>
+                      <tail reference="../head"/>
+                    </electionInfoManager.model.linkedlist.LinkedList>
+                    <electionInfoManager.model.linkedlist.LinkedList>
+                      <head>
+                        <content class="electionInfoManager.model.hashmap.HashMapNode">
+                          <key class="electionInfoManager.model.election.Politician" reference="../../../../../../../../../content/politicians/head/next/next/next/content/politician"/>
+                          <value class="electionInfoManager.model.election.ElectionEntry">
+                            <politician reference="../../../../../../../../../../content/politicians/head/next/next/next/content/politician"/>
+                            <affiliation>Fianna Fail</affiliation>
+                            <votes>110</votes>
+                            <position>0</position>
+                          </value>
+                        </content>
+                      </head>
+                      <tail reference="../head"/>
+                    </electionInfoManager.model.linkedlist.LinkedList>
+                    <electionInfoManager.model.linkedlist.LinkedList>
+                      <head/>
+                      <tail reference="../head"/>
+                    </electionInfoManager.model.linkedlist.LinkedList>
+                    <electionInfoManager.model.linkedlist.LinkedList>
+                      <head/>
+                      <tail reference="../head"/>
+                    </electionInfoManager.model.linkedlist.LinkedList>
+                    <electionInfoManager.model.linkedlist.LinkedList>
+                      <head/>
+                      <tail reference="../head"/>
+                    </electionInfoManager.model.linkedlist.LinkedList>
+                    <electionInfoManager.model.linkedlist.LinkedList>
+                      <head/>
+                      <tail reference="../head"/>
+                    </electionInfoManager.model.linkedlist.LinkedList>
+                    <electionInfoManager.model.linkedlist.LinkedList>
+                      <head/>
+                      <tail reference="../head"/>
+                    </electionInfoManager.model.linkedlist.LinkedList>
+                    <electionInfoManager.model.linkedlist.LinkedList>
+                      <head/>
+                      <tail reference="../head"/>
+                    </electionInfoManager.model.linkedlist.LinkedList>
+                    <electionInfoManager.model.linkedlist.LinkedList>
+                      <head>
+                        <content class="electionInfoManager.model.hashmap.HashMapNode">
+                          <key class="electionInfoManager.model.election.Politician" reference="../../../../../../../../content/politicians/head/next/next/next/next/content/politician"/>
+                          <value class="electionInfoManager.model.election.ElectionEntry">
+                            <politician reference="../../../../../../../../../content/politicians/head/next/next/next/next/content/politician"/>
+                            <affiliation>Fianna Gael</affiliation>
+                            <votes>165</votes>
+                            <position>0</position>
+                          </value>
+                        </content>
+                      </head>
+                      <tail reference="../head"/>
+                    </electionInfoManager.model.linkedlist.LinkedList>
+                    <electionInfoManager.model.linkedlist.LinkedList>
+                      <head>
+                        <content class="electionInfoManager.model.hashmap.HashMapNode">
+                          <key class="electionInfoManager.model.election.Politician" reference="../../../../../../../../../content/politicians/head/next/next/next/next/content/politician"/>
+                          <value class="electionInfoManager.model.election.ElectionEntry">
+                            <politician reference="../../../../../../../../../../content/politicians/head/next/next/next/next/content/politician"/>
+                            <affiliation>Social Democrats</affiliation>
+                            <votes>111</votes>
+                            <position>0</position>
+                          </value>
+                        </content>
+                      </head>
+                      <tail reference="../head"/>
+                    </electionInfoManager.model.linkedlist.LinkedList>
+                    <electionInfoManager.model.linkedlist.LinkedList>
+                      <head/>
+                      <tail reference="../head"/>
+                    </electionInfoManager.model.linkedlist.LinkedList>
+                  </list>
+                </candidates>
+              </content>
+              <next>
+                <content class="electionInfoManager.model.election.Election">
+                  <totalWinners>6</totalWinners>
+                  <date>2021-01-12</date>
+                  <electionLocation>EU</electionLocation>
+                  <electionType>European</electionType>
+                  <politicians>
+                    <head>
+                      <content class="electionInfoManager.model.election.ElectionEntry">
+                        <politician reference="../../../../../../../../content/politicians/head/next/content/politician"/>
+                        <affiliation>Sinn Fein</affiliation>
+                        <votes>184</votes>
+                        <position>1</position>
+                      </content>
+                      <next>
+                        <content class="electionInfoManager.model.election.ElectionEntry">
+                          <politician reference="../../../../../../../../../content/politicians/head/next/next/next/next/next/content/politician"/>
+                          <affiliation>Independent</affiliation>
+                          <votes>165</votes>
+                          <position>2</position>
+                        </content>
+                        <next>
+                          <content class="electionInfoManager.model.election.ElectionEntry">
+                            <politician reference="../../../../../../../../../../content/politicians/head/next/next/content/politician"/>
+                            <affiliation>Fianna Fail</affiliation>
+                            <votes>154</votes>
+                            <position>3</position>
+                          </content>
+                          <next>
+                            <content class="electionInfoManager.model.election.ElectionEntry">
+                              <politician reference="../../../../../../../../../../content/politicians/head/next/next/next/next/next/next/next/next/next/next/content/politician"/>
+                              <affiliation>Independent Ireland</affiliation>
+                              <votes>135</votes>
+                              <position>4</position>
+                            </content>
+                            <next>
+                              <content class="electionInfoManager.model.election.ElectionEntry">
+                                <politician reference="../../../../../../../../../../../../content/politicians/head/next/next/next/next/content/politician"/>
+                                <affiliation>Social Democrats</affiliation>
+                                <votes>135</votes>
+                                <position>5</position>
+                              </content>
+                              <next>
+                                <content class="electionInfoManager.model.election.ElectionEntry">
+                                  <politician reference="../../../../../../../../../../../../content/politicians/head/next/next/next/next/content/politician"/>
+                                  <affiliation>Fianna Gael</affiliation>
+                                  <votes>124</votes>
+                                  <position>6</position>
+                                </content>
+                                <next>
+                                  <content class="electionInfoManager.model.election.ElectionEntry">
+                                    <politician reference="../../../../../../../../../../../../../content/politicians/head/next/next/next/next/next/next/next/next/next/content/politician"/>
+                                    <affiliation>Social Democrats</affiliation>
+                                    <votes>122</votes>
+                                    <position>7</position>
+                                  </content>
+                                  <next>
+                                    <content class="electionInfoManager.model.election.ElectionEntry">
+                                      <politician reference="../../../../../../../../../../../../../../content/politicians/head/next/content/politician"/>
+                                      <affiliation>Labour Party</affiliation>
+                                      <votes>110</votes>
+                                      <position>8</position>
+                                    </content>
+                                  </next>
+                                </next>
+                              </next>
+                            </next>
+                          </next>
+                        </next>
+                      </next>
+                    </head>
+                    <tail reference="../head/next/next/next/next/next/next/next"/>
+                  </politicians>
+                  <candidates>
+                    <size>8</size>
+                    <list>
+                      <electionInfoManager.model.linkedlist.LinkedList>
+                        <head>
+                          <content class="electionInfoManager.model.hashmap.HashMapNode">
+                            <key class="electionInfoManager.model.election.Politician" reference="../../../../../../../../../../content/politicians/head/next/next/content/politician"/>
+                            <value class="electionInfoManager.model.election.ElectionEntry">
+                              <politician reference="../../../../../../../../../../../content/politicians/head/next/next/content/politician"/>
+                              <affiliation>Fianna Fail</affiliation>
+                              <votes>154</votes>
+                              <position>0</position>
+                            </value>
+                          </content>
+                          <next>
+                            <content class="electionInfoManager.model.hashmap.HashMapNode">
+                              <key class="electionInfoManager.model.election.Politician" reference="../../../../../../../../../../../content/politicians/head/next/content/politician"/>
+                              <value class="electionInfoManager.model.election.ElectionEntry">
+                                <politician reference="../../../../../../../../../../../../content/politicians/head/next/content/politician"/>
+                                <affiliation>Sinn Fein</affiliation>
+                                <votes>184</votes>
+                                <position>0</position>
+                              </value>
+                            </content>
+                          </next>
+                        </head>
+                        <tail reference="../head/next"/>
+                      </electionInfoManager.model.linkedlist.LinkedList>
+                      <electionInfoManager.model.linkedlist.LinkedList>
+                        <head/>
+                        <tail reference="../head"/>
+                      </electionInfoManager.model.linkedlist.LinkedList>
+                      <electionInfoManager.model.linkedlist.LinkedList>
+                        <head>
+                          <content class="electionInfoManager.model.hashmap.HashMapNode">
+                            <key class="electionInfoManager.model.election.Politician" reference="../../../../../../../../../content/politicians/head/next/next/next/next/next/next/next/next/next/next/content/politician"/>
+                            <value class="electionInfoManager.model.election.ElectionEntry">
+                              <politician reference="../../../../../../../../../../content/politicians/head/next/next/next/next/next/next/next/next/next/next/content/politician"/>
+                              <affiliation>Independent Ireland</affiliation>
+                              <votes>135</votes>
+                              <position>0</position>
+                            </value>
+                          </content>
+                        </head>
+                        <tail reference="../head"/>
+                      </electionInfoManager.model.linkedlist.LinkedList>
+                      <electionInfoManager.model.linkedlist.LinkedList>
+                        <head>
+                          <content class="electionInfoManager.model.hashmap.HashMapNode">
+                            <key class="electionInfoManager.model.election.Politician" reference="../../../../../../../../../content/politicians/head/next/content/politician"/>
+                            <value class="electionInfoManager.model.election.ElectionEntry">
+                              <politician reference="../../../../../../../../../../content/politicians/head/next/content/politician"/>
+                              <affiliation>Labour Party</affiliation>
+                              <votes>110</votes>
+                              <position>0</position>
+                            </value>
+                          </content>
+                        </head>
+                        <tail reference="../head"/>
+                      </electionInfoManager.model.linkedlist.LinkedList>
+                      <electionInfoManager.model.linkedlist.LinkedList>
+                        <head/>
+                        <tail reference="../head"/>
+                      </electionInfoManager.model.linkedlist.LinkedList>
+                      <electionInfoManager.model.linkedlist.LinkedList>
+                        <head/>
+                        <tail reference="../head"/>
+                      </electionInfoManager.model.linkedlist.LinkedList>
+                      <electionInfoManager.model.linkedlist.LinkedList>
+                        <head>
+                          <content class="electionInfoManager.model.hashmap.HashMapNode">
+                            <key class="electionInfoManager.model.election.Politician" reference="../../../../../../../../../../content/politicians/head/next/next/next/next/next/content/politician"/>
+                            <value class="electionInfoManager.model.election.ElectionEntry">
+                              <politician reference="../../../../../../../../../../../content/politicians/head/next/next/next/next/next/content/politician"/>
+                              <affiliation>Independent</affiliation>
+                              <votes>165</votes>
+                              <position>0</position>
+                            </value>
+                          </content>
+                        </head>
+                        <tail reference="../head"/>
+                      </electionInfoManager.model.linkedlist.LinkedList>
+                      <electionInfoManager.model.linkedlist.LinkedList>
+                        <head/>
+                        <tail reference="../head"/>
+                      </electionInfoManager.model.linkedlist.LinkedList>
+                      <electionInfoManager.model.linkedlist.LinkedList>
+                        <head/>
+                        <tail reference="../head"/>
+                      </electionInfoManager.model.linkedlist.LinkedList>
+                      <electionInfoManager.model.linkedlist.LinkedList>
+                        <head/>
+                        <tail reference="../head"/>
+                      </electionInfoManager.model.linkedlist.LinkedList>
+                      <electionInfoManager.model.linkedlist.LinkedList>
+                        <head/>
+                        <tail reference="../head"/>
+                      </electionInfoManager.model.linkedlist.LinkedList>
+                      <electionInfoManager.model.linkedlist.LinkedList>
+                        <head/>
+                        <tail reference="../head"/>
+                      </electionInfoManager.model.linkedlist.LinkedList>
+                      <electionInfoManager.model.linkedlist.LinkedList>
+                        <head>
+                          <content class="electionInfoManager.model.hashmap.HashMapNode">
+                            <key class="electionInfoManager.model.election.Politician" reference="../../../../../../../../../content/politicians/head/next/next/next/next/next/next/next/next/next/content/politician"/>
+                            <value class="electionInfoManager.model.election.ElectionEntry">
+                              <politician reference="../../../../../../../../../../content/politicians/head/next/next/next/next/next/next/next/next/next/content/politician"/>
+                              <affiliation>Social Democrats</affiliation>
+                              <votes>122</votes>
+                              <position>0</position>
+                            </value>
+                          </content>
+                        </head>
+                        <tail reference="../head"/>
+                      </electionInfoManager.model.linkedlist.LinkedList>
+                      <electionInfoManager.model.linkedlist.LinkedList>
+                        <head>
+                          <content class="electionInfoManager.model.hashmap.HashMapNode">
+                            <key class="electionInfoManager.model.election.Politician" reference="../../../../../../../../../content/politicians/head/next/next/next/next/content/politician"/>
+                            <value class="electionInfoManager.model.election.ElectionEntry">
+                              <politician reference="../../../../../../../../../../content/politicians/head/next/next/next/next/content/politician"/>
+                              <affiliation>Fianna Gael</affiliation>
+                              <votes>124</votes>
+                              <position>0</position>
+                            </value>
+                          </content>
+                        </head>
+                        <tail reference="../head"/>
+                      </electionInfoManager.model.linkedlist.LinkedList>
+                      <electionInfoManager.model.linkedlist.LinkedList>
+                        <head>
+                          <content class="electionInfoManager.model.hashmap.HashMapNode">
+                            <key class="electionInfoManager.model.election.Politician" reference="../../../../../../../../../../content/politicians/head/next/next/next/next/content/politician"/>
+                            <value class="electionInfoManager.model.election.ElectionEntry">
+                              <politician reference="../../../../../../../../../../../content/politicians/head/next/next/next/next/content/politician"/>
+                              <affiliation>Social Democrats</affiliation>
+                              <votes>135</votes>
+                              <position>0</position>
+                            </value>
+                          </content>
+                        </head>
+                        <tail reference="../head"/>
+                      </electionInfoManager.model.linkedlist.LinkedList>
+                      <electionInfoManager.model.linkedlist.LinkedList>
+                        <head/>
+                        <tail reference="../head"/>
+                      </electionInfoManager.model.linkedlist.LinkedList>
+                    </list>
+                  </candidates>
+                </content>
+              </next>
+            </next>
+          </next>
         </head>
-        <tail reference="../head"/>
+        <tail reference="../head/next/next/next"/>
       </list>
       <map>
-        <size>1</size>
+        <size>4</size>
         <list>
           <electionInfoManager.model.linkedlist.LinkedList>
-            <head/>
+            <head>
+              <content class="electionInfoManager.model.hashmap.HashMapNode">
+                <key class="int">2200</key>
+                <value class="electionInfoManager.model.election.Election" reference="../../../../../../list/head/next/content"/>
+              </content>
+            </head>
             <tail reference="../head"/>
           </electionInfoManager.model.linkedlist.LinkedList>
           <electionInfoManager.model.linkedlist.LinkedList>
@@ -129,8 +1057,19 @@
             <tail reference="../head"/>
           </electionInfoManager.model.linkedlist.LinkedList>
           <electionInfoManager.model.linkedlist.LinkedList>
-            <head/>
-            <tail reference="../head"/>
+            <head>
+              <content class="electionInfoManager.model.hashmap.HashMapNode">
+                <key class="int">2134</key>
+                <value class="electionInfoManager.model.election.Election" reference="../../../../../../list/head/next/next/next/content"/>
+              </content>
+              <next>
+                <content class="electionInfoManager.model.hashmap.HashMapNode">
+                  <key class="int">2124</key>
+                  <value class="electionInfoManager.model.election.Election" reference="../../../../../../../list/head/next/next/content"/>
+                </content>
+              </next>
+            </head>
+            <tail reference="../head/next"/>
           </electionInfoManager.model.linkedlist.LinkedList>
           <electionInfoManager.model.linkedlist.LinkedList>
             <head>
@@ -208,27 +1147,57 @@
     <politicians>
       <list>
         <head>
-          <content class="electionInfoManager.model.election.Politician" reference="../../../../elections/list/head/content/politicians/head/next/content/politician"/>
+          <content class="electionInfoManager.model.election.Politician" reference="../../../../elections/list/head/next/content/politicians/head/next/next/next/next/content/politician"/>
           <next>
-            <content class="electionInfoManager.model.election.Politician" reference="../../../../../elections/list/head/content/politicians/head/content/politician"/>
+            <content class="electionInfoManager.model.election.Politician" reference="../../../../../elections/list/head/next/content/politicians/head/next/content/politician"/>
             <next>
-              <content class="electionInfoManager.model.election.Politician">
-                <name>Philip Doyle</name>
-                <affiliation>Labour Party</affiliation>
-                <county>Limerick</county>
-                <photoURL>https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Rep._Joe_Courtney_Portrait_2024.jpg/250px-Rep._Joe_Courtney_Portrait_2024.jpg</photoURL>
-                <DOB>1997-01-22</DOB>
-              </content>
+              <content class="electionInfoManager.model.election.Politician" reference="../../../../../../elections/list/head/content/politicians/head/next/next/next/next/next/content/politician"/>
+              <next>
+                <content class="electionInfoManager.model.election.Politician" reference="../../../../../../../elections/list/head/next/content/politicians/head/next/next/next/next/next/next/next/next/next/content/politician"/>
+                <next>
+                  <content class="electionInfoManager.model.election.Politician" reference="../../../../../../../../elections/list/head/content/politicians/head/next/content/politician"/>
+                  <next>
+                    <content class="electionInfoManager.model.election.Politician" reference="../../../../../../../../../elections/list/head/content/politicians/head/content/politician"/>
+                    <next>
+                      <content class="electionInfoManager.model.election.Politician" reference="../../../../../../../../../../elections/list/head/content/politicians/head/next/next/content/politician"/>
+                      <next>
+                        <content class="electionInfoManager.model.election.Politician" reference="../../../../../../../../../../../elections/list/head/content/politicians/head/next/next/next/next/content/politician"/>
+                        <next>
+                          <content class="electionInfoManager.model.election.Politician" reference="../../../../../../../../../../../../elections/list/head/next/content/politicians/head/next/next/content/politician"/>
+                          <next>
+                            <content class="electionInfoManager.model.election.Politician" reference="../../../../../../../../../../../../../elections/list/head/content/politicians/head/next/next/next/content/politician"/>
+                            <next>
+                              <content class="electionInfoManager.model.election.Politician" reference="../../../../../../../../../../../../../../elections/list/head/next/content/politicians/head/next/next/next/next/next/next/next/next/next/next/content/politician"/>
+                              <next>
+                                <content class="electionInfoManager.model.election.Politician" reference="../../../../../../../../../../../../../../../elections/list/head/next/content/politicians/head/next/next/next/next/next/next/next/content/politician"/>
+                              </next>
+                            </next>
+                          </next>
+                        </next>
+                      </next>
+                    </next>
+                  </next>
+                </next>
+              </next>
             </next>
           </next>
         </head>
-        <tail reference="../head/next/next"/>
+        <tail reference="../head/next/next/next/next/next/next/next/next/next/next/next"/>
       </list>
       <map>
-        <size>3</size>
+        <size>12</size>
         <list>
           <electionInfoManager.model.linkedlist.LinkedList>
             <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head>
+              <content class="electionInfoManager.model.hashmap.HashMapNode">
+                <key class="int">1252067101</key>
+                <value class="electionInfoManager.model.election.Politician" reference="../../../../../../../elections/list/head/next/content/politicians/head/next/next/next/next/content/politician"/>
+              </content>
+            </head>
             <tail reference="../head"/>
           </electionInfoManager.model.linkedlist.LinkedList>
           <electionInfoManager.model.linkedlist.LinkedList>
@@ -238,12 +1207,43 @@
           <electionInfoManager.model.linkedlist.LinkedList>
             <head>
               <content class="electionInfoManager.model.hashmap.HashMapNode">
-                <key class="int">68746872</key>
-                <value class="electionInfoManager.model.election.Politician" reference="../../../../../../../elections/list/head/content/politicians/head/content/politician"/>
+                <key class="int">-1373391953</key>
+                <value class="electionInfoManager.model.election.Politician" reference="../../../../../../../elections/list/head/next/content/politicians/head/next/next/next/next/next/next/next/content/politician"/>
+              </content>
+            </head>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head>
+              <content class="electionInfoManager.model.hashmap.HashMapNode">
+                <key class="int">-515361254</key>
+                <value class="electionInfoManager.model.election.Politician" reference="../../../../../../../elections/list/head/content/politicians/head/next/next/next/next/next/content/politician"/>
+              </content>
+            </head>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head>
+              <content class="electionInfoManager.model.hashmap.HashMapNode">
+                <key class="int">106562306</key>
+                <value class="electionInfoManager.model.election.Politician" reference="../../../../../../../elections/list/head/next/content/politicians/head/next/next/next/next/next/next/next/next/next/next/content/politician"/>
+              </content>
+            </head>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head>
+              <content class="electionInfoManager.model.hashmap.HashMapNode">
+                <key class="int">-6884882</key>
+                <value class="electionInfoManager.model.election.Politician" reference="../../../../../../../elections/list/head/next/content/politicians/head/next/next/content/politician"/>
               </content>
               <next>
                 <content class="electionInfoManager.model.hashmap.HashMapNode">
-                  <key class="int">-995430342</key>
+                  <key class="int">342644832</key>
                   <value class="electionInfoManager.model.election.Politician" reference="../../../../../../../../elections/list/head/content/politicians/head/next/content/politician"/>
                 </content>
               </next>
@@ -259,10 +1259,26 @@
             <tail reference="../head"/>
           </electionInfoManager.model.linkedlist.LinkedList>
           <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
             <head>
               <content class="electionInfoManager.model.hashmap.HashMapNode">
-                <key class="int">-417726595</key>
-                <value class="electionInfoManager.model.election.Politician" reference="../../../../../../list/head/next/next/content"/>
+                <key class="int">-1293427564</key>
+                <value class="electionInfoManager.model.election.Politician" reference="../../../../../../../elections/list/head/next/content/politicians/head/next/next/next/next/next/next/next/next/next/content/politician"/>
               </content>
             </head>
             <tail reference="../head"/>
@@ -274,6 +1290,56 @@
           <electionInfoManager.model.linkedlist.LinkedList>
             <head/>
             <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head>
+              <content class="electionInfoManager.model.hashmap.HashMapNode">
+                <key class="int">-995430342</key>
+                <value class="electionInfoManager.model.election.Politician" reference="../../../../../../../elections/list/head/content/politicians/head/next/next/next/content/politician"/>
+              </content>
+            </head>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head>
+              <content class="electionInfoManager.model.hashmap.HashMapNode">
+                <key class="int">1459220144</key>
+                <value class="electionInfoManager.model.election.Politician" reference="../../../../../../../elections/list/head/content/politicians/head/next/next/content/politician"/>
+              </content>
+            </head>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head>
+              <content class="electionInfoManager.model.hashmap.HashMapNode">
+                <key class="int">-417726595</key>
+                <value class="electionInfoManager.model.election.Politician" reference="../../../../../../../elections/list/head/next/content/politicians/head/next/content/politician"/>
+              </content>
+            </head>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head/>
+            <tail reference="../head"/>
+          </electionInfoManager.model.linkedlist.LinkedList>
+          <electionInfoManager.model.linkedlist.LinkedList>
+            <head>
+              <content class="electionInfoManager.model.hashmap.HashMapNode">
+                <key class="int">-1940765822</key>
+                <value class="electionInfoManager.model.election.Politician" reference="../../../../../../../elections/list/head/content/politicians/head/next/next/next/next/content/politician"/>
+              </content>
+              <next>
+                <content class="electionInfoManager.model.hashmap.HashMapNode">
+                  <key class="int">68746872</key>
+                  <value class="electionInfoManager.model.election.Politician" reference="../../../../../../../../elections/list/head/content/politicians/head/content/politician"/>
+                </content>
+              </next>
+            </head>
+            <tail reference="../head/next"/>
           </electionInfoManager.model.linkedlist.LinkedList>
           <electionInfoManager.model.linkedlist.LinkedList>
             <head/>

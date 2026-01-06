@@ -143,7 +143,10 @@ public class mainController{
         PopoutMenu skeletonController = skeletonLoader.getController();
 
         skeletonController.initialize(insert); // Pass controller here
-        insert.edit(selectedEntity);
+        if(selectedEntity instanceof Politician)
+            insert.edit(manager.getPolitician((Politician) selectedEntity));
+        else
+            insert.edit(manager.getElection((Election) selectedEntity));
 
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
@@ -353,5 +356,15 @@ public class mainController{
     public void sortByNameDESC(ActionEvent actionEvent){
         manager.sortPoliticians(Comparator.comparing(Politician::getName).reversed());
         updatePoliticianView();
+    }
+
+    public void sortByTypeASC(){
+        manager.sortElections(Comparator.comparing(Election::getElectionType));
+        updateElectionView();
+    }
+
+    public void sortByTypeDESC(){
+        manager.sortElections(Comparator.comparing(Election::getElectionType).reversed());
+        updateElectionView();
     }
 }

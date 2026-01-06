@@ -76,33 +76,10 @@ public class Election {
         setPositions();
         switch(electionType){
             case "General", "Local", "European" -> { //realized because im using droop I have to do vote redistribution
-                temp = getTotalOverQuota();
-                LinkedList<ElectionEntry> takenVotes = new LinkedList<>();
-                while(temp.size() < totalWinners){
-                    sortByVotes();
-                    int votes = 0;
-                    for(int i = politicians.size() - 1; i >= 0; i--) {
-                        ElectionEntry e = politicians.get(i);
-                        if (!takenVotes.contains(e) && e.getVotes() > 0) {
-                            votes = e.getVotes();
-                            takenVotes.add(e);
-                            break;
-                        }
-                    }
-
-                    LinkedList<ElectionEntry> manipulatedList = new LinkedList<>(); // creating a list of candidates that haven't already passed the threshold
-                    for(Politician key : candidates.getKeys()) {
-                        ElectionEntry e = candidates.get(key);
-                        if(e.getVotes() > 0)
-                            manipulatedList.add(e);
-                    }
-                    manipulatedList.removeAll(temp);
-
-                    int votesToAdd = votes / manipulatedList.size(); //probably will have some loss here
-                    for(ElectionEntry e : manipulatedList)
-                        e.addVotes(votesToAdd);
-
-                    temp = getTotalOverQuota();
+                int i = 0;
+                while(i < totalWinners){
+                    temp.add(politicians.get(i));
+                    i++;
                 }
             }
             case "Presidential" -> {

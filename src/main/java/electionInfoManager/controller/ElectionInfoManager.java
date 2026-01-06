@@ -162,4 +162,12 @@ public class ElectionInfoManager{
     public void sortElections(Comparator<Election> comparing){
         elections.sort(comparing);
     }
+
+    public Election getElection(Election e){
+        return getElectionsMap().get(e.hashCode());
+    }
+
+    public Politician getPolitician(Politician p){
+        return getPoliticiansMap().get(p.hashCode());
+    }
 }

@@ -13,9 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
@@ -61,11 +59,13 @@ public class electionView extends Insertable {
 
     public void updateWinners(){
         winnersView.getItems().clear();
+        election.sortByVotes();
         winnersView.getItems().addAll(election.getCandidates());
-
+        winnersView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         ObservableList<ElectionEntry> winners = FXCollections.observableArrayList();
         if(!election.isEmpty())
             winners.addAll(election.calculateResults());
+        //MultipleSelectionModel<TreeItem<MarketStructure<?>>> selectionModel = treeView.getSelectionModel();
         for(ElectionEntry e : winners)
             winnersView.getSelectionModel().select(e);
     }

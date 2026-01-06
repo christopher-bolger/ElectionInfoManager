@@ -31,6 +31,7 @@ public class politicianView extends Insertable {
     public AnchorPane root;
     public ImageView imageViewer;
     public ListView<String> politicianDetailsListView;
+    public LinkedList<String> previousAffiliations;
     public Politician politician;
     public Button viewElectionButton;
     public TableColumn<Election, String> electionType;
@@ -88,20 +89,21 @@ public class politicianView extends Insertable {
             elections = e;
     }
 
-
     public LinkedList<Election> getElectionsWithPolitician(){
         LinkedList<Election> electionList = new LinkedList<>();
+        if(elections.isEmpty())
+            return null;
         for(Election e : elections) {
             if (e.containsPolitician(politician))
                 electionList.add(e);
-            System.out.println(e);
         }
         return electionList;
     }
 
     public void updateElectionTable(){
         ObservableList<Election> result = FXCollections.observableArrayList();
-        result.addAll(getElectionsWithPolitician());
+        if(getElectionsWithPolitician() != null)
+            result.addAll(getElectionsWithPolitician());
         electionTable.setItems(result);
     }
 

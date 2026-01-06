@@ -78,8 +78,7 @@ public class addPoliticiansToElection extends Insertable {
         //public final static String[] FIELDS = {"Name", "Affiliation", "County", "PhotoURL", "DOB"};
         LinkedList<Politician> result = new LinkedList<>();
         String text = politicianSearchField.getText();
-        for(ElectionEntry e : election.getCandidates()){
-            Politician p = e.getPolitician();
+        for(Politician p : list){
             switch(politicianFilter){
                 case "Name" -> {
                     if(p.getName().toLowerCase().contains(text.toLowerCase()))
@@ -103,6 +102,9 @@ public class addPoliticiansToElection extends Insertable {
                 }
             }
         }
+        if(!election.isEmpty())
+            for(ElectionEntry e : election.getCandidates())
+                result.remove(e.getPolitician());
         updatePoliticianList(result);
     }
 

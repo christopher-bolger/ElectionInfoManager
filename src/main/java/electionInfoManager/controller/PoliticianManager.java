@@ -39,11 +39,7 @@ public class PoliticianManager extends Manager<Politician> {
     }
 
     public boolean updatePolitician(Politician current, Politician updated) {
-        System.out.println("In method");
-        System.out.println(list.contains(current));
-        System.out.println(map.get(current.hashCode()) == current);
         if(map.get(current.hashCode()) != null && updated != null) {
-            System.out.println("In if");
             Politician toUpdate = map.get(current.hashCode());
             toUpdate.setName(current.getName());
             toUpdate.setCounty(updated.getCounty());
@@ -99,6 +95,14 @@ public class PoliticianManager extends Manager<Politician> {
                 }
             }
         }
+        if(!result.isEmpty())
+            switch(searchFilter){
+                case "Name" -> Sort.mergeSort(result, Comparator.comparing(Politician::getName));
+                case "Affiliation" -> Sort.mergeSort(result, Comparator.comparing(Politician::getAffiliation));
+                case "County" -> Sort.mergeSort(result, Comparator.comparing(Politician::getCounty));
+                case "DOB" -> Sort.mergeSort(result, Comparator.comparing(Politician::getDOB));
+                default -> Sort.mergeSort(result, Comparator.comparing(Politician::getPhotoURL));
+            }
         return result;
     }
 }

@@ -29,8 +29,18 @@
                 </Menu>
                   <Menu mnemonicParsing="false" text="Sort">
                      <items>
-                        <MenuItem mnemonicParsing="false" onAction="#sortByNameASC" text="Name ASC" />
-                        <MenuItem mnemonicParsing="false" onAction="#sortByNameDESC" text="Name DESC" />
+                        <Menu mnemonicParsing="false" text="Politicians">
+                          <items>
+                              <MenuItem mnemonicParsing="false" onAction="#sortByNameASC" text="Name ASC" />
+                              <MenuItem mnemonicParsing="false" onAction="#sortByNameDESC" text="Name DESC" />
+                          </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Elections">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#sortByTypeASC" text="Type ASC" />
+                              <MenuItem mnemonicParsing="false" onAction="#sortByTypeDESC" text="Type DESC" />
+                           </items>
+                        </Menu>
                      </items>
                   </Menu>
               </menus>
